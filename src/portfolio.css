@@ -1192,6 +1192,19 @@ a {
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* Большие экраны - увеличенные карточки */
+@media (min-width: 1280px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .portfolio__card-img {
+    aspect-ratio: 3/2;
+  }
+}
+
 @media (max-width: 1200px) {
   .portfolio__grid {
     grid-template-columns: repeat(2, 1fr);
