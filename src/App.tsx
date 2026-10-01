@@ -163,7 +163,7 @@ export default function App() {
         const viewportCenter = window.innerHeight / 2;
         const sectionCenter = sectionRect.top + sectionRect.height / 2;
         const offset = sectionCenter - viewportCenter;
-        const parallaxValue = offset * 0.1; // Коэффициент 0.1
+        const parallaxValue = offset * 0.05; // Коэффициент 0.05
         
         instaShotImg.style.transform = `translateY(${parallaxValue}px)`;
       };
