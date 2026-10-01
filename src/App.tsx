@@ -260,7 +260,7 @@ export default function App() {
             </div>
           </div>
 
-          <a href="#contact" className="btn arrow-link reveal">
+          <a href="#book" className="btn arrow-link reveal">
             ЗАПИСАТЬСЯ НА СЪЁМКУ <ArrowIcon />
           </a>
         </div>
@@ -339,7 +339,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="footer__cta">
+        <div className="footer__cta" id="book">
           <h2 className="footer__cta-title">ГОТОВЫ ЗАПИСАТЬСЯ?</h2>
           <a href="mailto:hello@ekaterinapodstavkina.ru" className="btn btn--outline arrow-link">
             СВЯЗАТЬСЯ <ArrowIcon />
