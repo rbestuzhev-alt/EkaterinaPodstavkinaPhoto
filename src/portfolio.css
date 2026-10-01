@@ -702,18 +702,7 @@ a {
   filter: grayscale(100%);
 }
 
-.portfolio__card-label {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 11px;
-  color: var(--milk);
-  z-index: 2;
-}
+
 
 .portfolio__card-link {
   position: absolute;

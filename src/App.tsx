@@ -328,7 +328,6 @@ export default function App() {
 
           <div className="portfolio__grid">
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">СВАДЬБЫ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/wedding1/500/667"
@@ -339,7 +338,6 @@ export default function App() {
             </div>
 
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">ПОРТРЕТЫ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/portrait1/500/667"
@@ -350,7 +348,6 @@ export default function App() {
             </div>
 
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">СЕМЬИ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/family1/500/667"
@@ -361,7 +358,6 @@ export default function App() {
             </div>
 
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">БРЕНДИНГ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/brand1/500/667"
