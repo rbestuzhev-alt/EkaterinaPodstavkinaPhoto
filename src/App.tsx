@@ -12,6 +12,30 @@ const ArrowIcon = () => (
   </svg>
 );
 
+/* ============================================
+   ПРЕЛОАДЕР "ПРОЯВКА"
+   ============================================ */
+const Preloader = () => {
+  const text = "35MM — ISO 400 — FR 01A";
+  const letters = text.split('');
+
+  return (
+    <div className="preloader" id="preloader">
+      <div className="preloader__text">
+        {letters.map((letter, i) => (
+          <span
+            key={i}
+            className="preloader__letter"
+            style={{ animationDelay: `${i * 40}ms` }}
+          >
+            {letter === ' ' ? '\u00A0' : letter}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
 
 
@@ -24,6 +48,26 @@ export default function App() {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- ПРЕЛОАДЕР ---------- */
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      if (prefersReducedMotion || sessionStorage.getItem('preloader-shown')) {
+        preloader.style.display = 'none';
+      } else {
+        document.body.style.overflow = 'hidden';
+        const hidePreloader = () => {
+          preloader.classList.add('preloader--hidden');
+          document.body.style.overflow = '';
+          sessionStorage.setItem('preloader-shown', '1');
+          setTimeout(() => { preloader.style.display = 'none'; }, 900);
+        };
+        window.addEventListener('load', () => setTimeout(hidePreloader, 800));
+        setTimeout(hidePreloader, 2500);
+      }
+    }
+
     /* ---------- Intersection Observer для .reveal ---------- */
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,7 +84,80 @@ export default function App() {
       observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    /* ---------- LINE-MASK REVEAL ---------- */
+    const lineObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll('.line-mask').forEach((el) => {
+      if (prefersReducedMotion) {
+        el.classList.add('in-view');
+      } else {
+        lineObserver.observe(el);
+      }
+    });
+
+    /* ---------- ПРОЯВКА КАДРОВ ПОРТФОЛИО ---------- */
+    const portfolioObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('developed');
+            portfolioObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll('.portfolio__card-img').forEach((el, i) => {
+      if (prefersReducedMotion) {
+        (el as HTMLElement).classList.add('developed');
+      } else {
+        (el as HTMLElement).style.transitionDelay = `${i * 100}ms`;
+        portfolioObserver.observe(el);
+      }
+    });
+
+    /* ---------- LENIS SMOOTH SCROLL ---------- */
+    let lenisInstance: any = null;
+    if (!prefersReducedMotion && (window as any).Lenis) {
+      lenisInstance = new (window as any).Lenis({
+        duration: 1.15,
+        smoothWheel: true,
+      });
+
+      const raf = (time: number) => {
+        lenisInstance?.raf(time);
+        requestAnimationFrame(raf);
+      };
+      requestAnimationFrame(raf);
+
+      // Якорные ссылки через Lenis
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          const href = (anchor as HTMLAnchorElement).getAttribute('href');
+          if (href && href !== '#' && document.querySelector(href)) {
+            e.preventDefault();
+            lenisInstance?.scrollTo(href, { offset: 0, duration: 1.2 });
+          }
+        });
+      });
+    }
+
+    return () => {
+      observer.disconnect();
+      lineObserver.disconnect();
+      portfolioObserver.disconnect();
+      lenisInstance?.destroy();
+    };
   }, []);
 
   const openMenu = () => {
@@ -55,6 +172,9 @@ export default function App() {
 
   return (
     <>
+      {/* ========== ПРЕЛОАДЕР ========== */}
+      <Preloader />
+
       {/* ========== МОБИЛЬНОЕ МЕНЮ ========== */}
       <div className="mobile-overlay" ref={overlayRef}>
         <button className="mobile-overlay__close" onClick={closeMenu} aria-label="Закрыть меню">×</button>
@@ -103,8 +223,14 @@ export default function App() {
           </button>
         </div>
 
-        <h1 className="hero__name">
-          ПОДСТАВКИНА<br />ЕКАТЕРИНА
+        <h1 className="hero__name line-mask">
+          <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
+            <span className="line-inner">ПОДСТАВКИНА</span>
+          </span>
+          <br />
+          <span className="line" style={{ '--i': 1 } as React.CSSProperties}>
+            <span className="line-inner">ЕКАТЕРИНА</span>
+          </span>
         </h1>
 
         <div className="hero__nav">
@@ -125,8 +251,10 @@ export default function App() {
       {/* ========== МАНИФЕСТ ========== */}
       <section className="manifesto" id="about">
         <div className="manifesto__inner">
-          <h2 className="manifesto__headline mixed-headline reveal">
-            <em>ты</em> НЕ ПОЗИРУЕШЬ.
+          <h2 className="manifesto__headline mixed-headline reveal line-mask">
+            <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
+              <span className="line-inner"><em>ты</em> НЕ ПОЗИРУЕШЬ.</span>
+            </span>
           </h2>
 
           <div className="manifesto__collage reveal">
@@ -216,8 +344,10 @@ export default function App() {
       {/* ========== УСЛУГИ ========== */}
       <section className="services" id="services">
         <div className="services__inner">
-          <h2 className="services__headline mixed-headline reveal">
-            <em>опыт</em> — ЭТО ВСЁ.
+          <h2 className="services__headline mixed-headline reveal line-mask">
+            <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
+              <span className="line-inner"><em>опыт</em> — ЭТО ВСЁ.</span>
+            </span>
           </h2>
 
           <div className="services__steps">
@@ -293,8 +423,10 @@ export default function App() {
         </div>
 
         <div className="newsletter__inner reveal">
-          <h2 className="newsletter__headline mixed-headline">
-            <em>сделаю вашу ленту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong>
+          <h2 className="newsletter__headline mixed-headline line-mask">
+            <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
+              <span className="line-inner"><em>сделаю вашу ленту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong></span>
+            </span>
           </h2>
           <p className="newsletter__desc">
             Все мои работы
