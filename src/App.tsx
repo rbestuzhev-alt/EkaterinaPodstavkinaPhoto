@@ -144,7 +144,7 @@ export default function App() {
         </div>
 
         <p className="hero__tagline">
-          Мы ловим свет, создаём истории и позволяем <em>вам</em> чувствовать это вечно.
+          Ловлю свет и создаю <em>истории</em>.
         </p>
       </header>
 
