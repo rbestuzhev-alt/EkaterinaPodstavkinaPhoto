@@ -268,7 +268,9 @@ export default function App() {
 
       {/* ========== СОЦСЕТИ ========== */}
       <section className="social curved-top curved-top--milk" id="journal">
-        <span className="watermark watermark--light" style={{ top: '140px', left: '-5%', fontSize: 'clamp(60px, 15vw, 240px)' }}>INSTAGRAM</span>
+        <div className="social__watermark-wrapper">
+          <span className="watermark watermark--light" style={{ top: '40px', left: '-5%', fontSize: 'clamp(60px, 15vw, 240px)' }}>INSTAGRAM</span>
+        </div>
 
         <div className="social__inner">
           <div className="reveal">

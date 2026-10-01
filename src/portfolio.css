@@ -662,9 +662,17 @@ a {
 .social {
   position: relative;
   background: var(--milk);
-  padding: clamp(48px, 7vh, 88px) 40px;
+  padding: clamp(40px, 6vh, 72px) 40px;
   overflow: visible;
-  z-index: 2;
+  z-index: 3;
+}
+
+.social__watermark-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .social__inner {
@@ -676,6 +684,7 @@ a {
   align-items: start;
   position: relative;
   z-index: 2;
+  overflow: visible;
 }
 
 .social__inner > div:first-child {
@@ -724,13 +733,13 @@ a {
 .insta-shot {
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
-  height: clamp(560px, 78vh, 860px);
-  max-height: 86vh;
+  height: clamp(680px, 96vh, 1000px);
   width: auto;
   max-width: 100%;
   align-self: center;
   justify-self: end;
   margin-right: clamp(16px, 4vw, 56px);
+  margin-block: clamp(-180px, -12vh, -90px);
 }
 
 .insta-shot img {
