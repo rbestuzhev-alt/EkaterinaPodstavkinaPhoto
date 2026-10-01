@@ -212,6 +212,13 @@ export default function App() {
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt || 'Избранная работа';
           
+          // === КОМПЕНСАЦИЯ СКРОЛЛБАРА ===
+          const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+          if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = scrollbarWidth + 'px';
+          }
+          // =================================
+          
           // Ждём один кадр, чтобы браузер применил начальное состояние
           setTimeout(() => {
             lightbox.classList.add('active');
@@ -240,6 +247,7 @@ export default function App() {
       if (closeBtn || clickedOnBackground) {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = ''; // возвращаем padding
         console.log('✅ Лайтбокс закрыт');
         
         // Очищаем src после анимации
@@ -257,6 +265,7 @@ export default function App() {
         if (lightbox && lightbox.classList.contains('active')) {
           lightbox.classList.remove('active');
           document.body.style.overflow = '';
+          document.body.style.paddingRight = ''; // возвращаем padding
           console.log('✅ Лайтбокс закрыт по Escape');
           
           setTimeout(() => {
