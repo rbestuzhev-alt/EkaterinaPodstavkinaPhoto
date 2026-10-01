@@ -612,11 +612,45 @@ a {
   filter: grayscale(100%);
 }
 
-.manifesto__text {
-  font-size: 16px;
-  line-height: 1.8;
+.manifesto__overlay {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.manifesto__overlay-line {
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.manifesto__overlay-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
   color: var(--smoke);
-  margin-bottom: 40px;
+}
+
+.manifesto__text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
+  line-height: 1.55;
+  color: var(--milk);
+  max-width: 40ch;
+  margin-bottom: 48px;
+}
+
+.manifesto__text em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.manifesto__text + .btn {
+  margin-top: 3rem;
 }
 
 /* ============================================
