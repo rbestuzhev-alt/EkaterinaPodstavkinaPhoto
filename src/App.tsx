@@ -95,8 +95,8 @@ export default function App() {
       <header className="hero" id="hero">
         <div className="hero__bg">
           <img
-            src="https://picsum.photos/seed/hero/1920/1080"
-            alt="Фон editorial-фотографии"
+            src="https://i.postimg.cc/Kzc9w2s4/743563696-17879345910613066-6066616939586889113-n.jpg"
+            alt="Екатерина Подставкина — фотограф"
           />
         </div>
         <div className="hero__overlay"></div>
