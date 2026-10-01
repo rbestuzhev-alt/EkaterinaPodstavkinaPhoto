@@ -152,11 +152,42 @@ export default function App() {
       });
     }
 
+    /* ---------- ПАРАЛЛАКС ТЕЛЕФОНА INSTAGRAM ---------- */
+    let parallaxRafId: number | null = null;
+    const instaShotImg = document.querySelector('.insta-shot img') as HTMLElement;
+    const instaSection = document.querySelector('.social') as HTMLElement;
+
+    if (!prefersReducedMotion && instaShotImg && instaSection && window.innerWidth >= 900) {
+      const updateParallax = () => {
+        const sectionRect = instaSection.getBoundingClientRect();
+        const viewportCenter = window.innerHeight / 2;
+        const sectionCenter = sectionRect.top + sectionRect.height / 2;
+        const offset = sectionCenter - viewportCenter;
+        const parallaxValue = offset * 0.1; // Коэффициент 0.1
+        
+        instaShotImg.style.transform = `translateY(${parallaxValue}px)`;
+      };
+
+      const handleScroll = () => {
+        if (parallaxRafId) return;
+        parallaxRafId = requestAnimationFrame(() => {
+          updateParallax();
+          parallaxRafId = null;
+        });
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      updateParallax(); // Начальное положение
+    }
+
     return () => {
       observer.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
       lenisInstance?.destroy();
+      if (parallaxRafId) {
+        cancelAnimationFrame(parallaxRafId);
+      }
     };
   }, []);
 

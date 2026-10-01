@@ -871,6 +871,19 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
+  will-change: transform;
+}
+
+@media (max-width: 899px) {
+  .insta-shot img {
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .insta-shot img {
+    transform: none !important;
+  }
 }
 
 /* ============================================
