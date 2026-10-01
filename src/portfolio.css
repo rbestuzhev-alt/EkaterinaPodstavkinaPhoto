@@ -662,8 +662,9 @@ a {
 .social {
   position: relative;
   background: var(--milk);
-  padding: 140px 40px 120px;
-  overflow: hidden;
+  padding: clamp(48px, 7vh, 88px) 40px;
+  overflow: visible;
+  z-index: 2;
 }
 
 .social__inner {
