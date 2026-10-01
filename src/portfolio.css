@@ -189,7 +189,7 @@ a {
   width: 160%;
   height: 160px;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 0;
 }
 
 .curved-top--milk::before {
@@ -671,7 +671,7 @@ a {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -689,6 +689,8 @@ a {
 
 .social__inner > div:first-child {
   margin-top: 150px;
+  position: relative;
+  z-index: 2;
 }
 
 .social__headline {
@@ -740,6 +742,7 @@ a {
   top: 50%;
   transform: translateY(calc(-50% + clamp(48px, 8vh, 96px)));
   right: clamp(16px, 4vw, 56px);
+  z-index: 3;
 }
 
 .insta-shot img {
