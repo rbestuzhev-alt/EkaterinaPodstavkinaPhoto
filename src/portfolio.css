@@ -677,6 +677,10 @@ a {
   z-index: 2;
 }
 
+.social__inner > div:first-child {
+  margin-top: 150px;
+}
+
 .social__headline {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -1079,6 +1083,10 @@ a {
   .social__inner {
     grid-template-columns: 1fr;
     gap: 50px;
+  }
+  
+  .social__inner > div:first-child {
+    margin-top: 0;
   }
   
   .hero__tagline {
