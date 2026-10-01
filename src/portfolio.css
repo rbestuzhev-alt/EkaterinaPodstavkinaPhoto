@@ -1,16 +1,13 @@
 /* ============================================
    ЕКАТЕРИНА ПОДСТАВКИНА — PORTFOLIO
    Editorial / Fashion Magazine Aesthetic
-   Палитра: чёрный + молочный + хвойный + мох + мёд + киноварь
+   Фотолаборатория: чёрный + молочный + киноварь
    ============================================ */
 
 /* ---------- CSS VARIABLES ---------- */
 :root {
   --black: #0B0A08;
   --milk: #EFEBE4;
-  --pine: #17251C;
-  --moss: #5C7A54;
-  --honey: #C99B62;
   --red: #C0291A;
   --smoke: #8F8B85;
   --line-on-black: rgba(239,235,228,.15);
@@ -46,7 +43,7 @@ body::after {
   z-index: 9999;
   pointer-events: none;
   opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
@@ -201,10 +198,6 @@ a {
 
 .curved-top--black::before {
   background: var(--black);
-}
-
-.curved-top--pine::before {
-  background: var(--pine);
 }
 
 /* ---------- REVEAL ANIMATION ---------- */
@@ -463,22 +456,6 @@ a {
   font-size: clamp(40px, 7vw, 90px);
   margin-bottom: 40px;
   color: var(--milk);
-  position: relative;
-  padding-bottom: 24px;
-}
-
-.manifesto__headline::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 80px;
-  height: 2px;
-  background: var(--moss);
-}
-
-.manifesto__headline em {
-  color: var(--honey);
 }
 
 .manifesto__collage {
@@ -540,19 +517,6 @@ a {
   font-size: 14px;
   margin-bottom: 60px;
   color: var(--black);
-  position: relative;
-  padding-bottom: 20px;
-}
-
-.portfolio__title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: var(--moss);
 }
 
 .portfolio__grid {
@@ -581,11 +545,6 @@ a {
   opacity: 1;
 }
 
-.portfolio__card:hover {
-  outline: 2px solid var(--moss);
-  outline-offset: -2px;
-}
-
 .portfolio__card-img {
   width: 100%;
   aspect-ratio: 3/4;
@@ -608,8 +567,6 @@ a {
   letter-spacing: 0.18em;
   font-size: 11px;
   color: var(--milk);
-  background: var(--moss);
-  padding: 4px 12px;
   z-index: 2;
 }
 
@@ -639,11 +596,11 @@ a {
 }
 
 /* ============================================
-   SERVICES SECTION (PINE BACKGROUND)
+   SERVICES SECTION
    ============================================ */
 .services {
   position: relative;
-  background: var(--pine);
+  background: var(--black);
   color: var(--milk);
   padding: 140px 40px 120px;
   overflow: hidden;
@@ -660,22 +617,6 @@ a {
   font-size: clamp(36px, 6vw, 80px);
   margin-bottom: 80px;
   color: var(--milk);
-  position: relative;
-  padding-bottom: 24px;
-}
-
-.services__headline::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 80px;
-  height: 2px;
-  background: var(--moss);
-}
-
-.services__headline em {
-  color: var(--honey);
 }
 
 .services__steps {
@@ -694,7 +635,7 @@ a {
 .services__step-num {
   font-family: 'Italiana', serif;
   font-size: clamp(48px, 5vw, 72px);
-  color: rgba(239,235,228,.6);
+  color: var(--smoke);
   line-height: 1;
   flex-shrink: 0;
 }
@@ -712,18 +653,7 @@ a {
 .services__step-content p {
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(239,235,228,.6);
-}
-
-/* Кнопка на pine фоне */
-.services .btn {
-  background: var(--milk);
-  color: var(--pine);
-}
-
-.services .btn:hover {
-  background: var(--red);
-  color: var(--milk);
+  color: var(--smoke);
 }
 
 /* ============================================
@@ -754,18 +684,6 @@ a {
   letter-spacing: 0.25em;
   font-size: 14px;
   margin-bottom: 24px;
-  position: relative;
-  padding-bottom: 16px;
-}
-
-.social__headline::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: var(--moss);
 }
 
 .social__text {
@@ -837,7 +755,7 @@ a {
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 8px;
-  border: 2px solid var(--moss);
+  border: 2px solid var(--milk);
 }
 
 .phone__nick {
@@ -916,7 +834,6 @@ a {
   font-style: italic;
   font-weight: 500;
   text-transform: lowercase;
-  color: var(--honey);
 }
 
 .newsletter__headline strong {
@@ -1009,7 +926,7 @@ a {
 }
 
 .marquee__text:nth-child(even) {
-  color: var(--honey);
+  color: var(--red);
   opacity: 0.15;
 }
 
