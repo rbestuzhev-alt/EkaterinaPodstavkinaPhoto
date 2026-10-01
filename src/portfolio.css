@@ -64,7 +64,7 @@ body.loaded::after {
 }
 
 .line-mask .line + .line {
-  margin-top: -0.32em;
+  margin-top: -0.26em;
 }
 
 .line-mask .line-inner {
