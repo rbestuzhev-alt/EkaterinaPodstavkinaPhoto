@@ -146,13 +146,13 @@ export default function App() {
           <div className="manifesto__collage reveal">
             <img
               className="manifesto__collage-img1"
-              src="https://i.postimg.cc/QxBjvLR9/Ph-eppho-to.jpg"
+              src="https://i.postimg.cc/4d7TqV0s/651182840-17860030887613066-5146487858387492302-n.webp"
               alt="Кадр со съёмки Екатерины Подставкиной"
               loading="lazy"
             />
             <img
               className="manifesto__collage-img2"
-              src="https://i.postimg.cc/Fzzh9w1s/651182840-17860030887613066-5146487858387492302-n.jpg"
+              src="https://i.postimg.cc/4yQ2S3Xx/649246192-17859272616613066-4078323034697577703-n.webp"
               alt="Ч/б кадр со съёмки"
               loading="lazy"
             />
