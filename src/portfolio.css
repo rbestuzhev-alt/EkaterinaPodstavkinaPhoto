@@ -1304,7 +1304,7 @@ a {
 /* ============================================
    LIGHTBOX
    ============================================ */
-.lightbox {
+#portfolio-lightbox {
   position: fixed;
   inset: 0;
   background: rgba(11, 10, 8, 0.94);
@@ -1314,49 +1314,36 @@ a {
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity;
+  transition: opacity 0.4s ease;
 }
 
-.lightbox.active {
+#portfolio-lightbox.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.lightbox-img {
+#portfolio-lightbox .lightbox-img {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
   opacity: 0;
-  transform: scale(0.92) translateY(12px);
-  transition:
-    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.lightbox.active .lightbox-img {
+#portfolio-lightbox.active .lightbox-img {
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: scale(1);
 }
 
-.lightbox-close {
+#portfolio-lightbox .lightbox-close {
   position: absolute;
-  top: 28px;
+  top: 24px;
   right: 32px;
   background: none;
   border: none;
   color: #EFEBE4;
   font-size: 32px;
   cursor: pointer;
-  line-height: 1;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lightbox-close:hover {
-  transform: scale(1.15);
-}
-
-.lightbox-close:hover {
-  color: var(--red);
+  z-index: 10000;
 }
