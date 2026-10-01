@@ -286,7 +286,6 @@ export default function App() {
           <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
             <span className="line-inner">ПОДСТАВКИНА</span>
           </span>
-          <br />
           <span className="line" style={{ '--i': 1 } as React.CSSProperties}>
             <span className="line-inner">ЕКАТЕРИНА</span>
           </span>
