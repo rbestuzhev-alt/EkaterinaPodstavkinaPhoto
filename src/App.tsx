@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import './portfolio.css';
 
 /* ============================================
-   SVG COMPONENTS
+   SVG КОМПОНЕНТЫ
    ============================================ */
 
 const ArrowIcon = () => (
@@ -37,13 +37,13 @@ const YoutubeIcon = () => (
 );
 
 const PodcastIcon = () => (
-  <svg viewBox="0 0 24 24" aria-label="Podcast">
+  <svg viewBox="0 0 24 24" aria-label="Подкаст">
     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c2.275 0 4.363.785 6.023 2.097L6.097 18.023A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2zm0 20c-2.275 0-4.363-.785-6.023-2.097l11.926-13.926A9.953 9.953 0 0122 12c0 5.514-4.486 10-10 10zm-1-7v-4l4 2-4 2z"/>
   </svg>
 );
 
 /* ============================================
-   MAIN APP COMPONENT
+   ГЛАВНЫЙ КОМПОНЕНТ ПРИЛОЖЕНИЯ
    ============================================ */
 
 export default function App() {
@@ -52,7 +52,7 @@ export default function App() {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    /* ---------- Intersection Observer for .reveal ---------- */
+    /* ---------- Intersection Observer для .reveal ---------- */
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -93,22 +93,22 @@ export default function App() {
 
   return (
     <>
-      {/* ========== MOBILE OVERLAY ========== */}
+      {/* ========== МОБИЛЬНОЕ МЕНЮ ========== */}
       <div className="mobile-overlay" ref={overlayRef}>
-        <button className="mobile-overlay__close" onClick={closeMenu} aria-label="Close menu">×</button>
-        <a href="#about" onClick={closeMenu}>About</a>
-        <a href="#portfolio" onClick={closeMenu}>Portfolio</a>
-        <a href="#services" onClick={closeMenu}>Services</a>
-        <a href="#journal" onClick={closeMenu}>Journal</a>
-        <a href="#contact" onClick={closeMenu}>Contact</a>
+        <button className="mobile-overlay__close" onClick={closeMenu} aria-label="Закрыть меню">×</button>
+        <a href="#about" onClick={closeMenu}>О себе</a>
+        <a href="#portfolio" onClick={closeMenu}>Портфолио</a>
+        <a href="#services" onClick={closeMenu}>Услуги</a>
+        <a href="#journal" onClick={closeMenu}>Журнал</a>
+        <a href="#contact" onClick={closeMenu}>Контакты</a>
       </div>
 
-      {/* ========== HERO SECTION ========== */}
+      {/* ========== HERO СЕКЦИЯ ========== */}
       <header className="hero" id="hero">
         <div className="hero__bg">
           <img
             src="https://picsum.photos/seed/hero/1920/1080"
-            alt="Fashion editorial photography background"
+            alt="Фон editorial-фотографии"
           />
         </div>
         <div className="hero__overlay"></div>
@@ -119,182 +119,182 @@ export default function App() {
             <a href="#" aria-label="Facebook"><FacebookIcon /></a>
             <a href="#" aria-label="LinkedIn"><LinkedInIcon /></a>
             <a href="#" aria-label="YouTube"><YoutubeIcon /></a>
-            <a href="#" aria-label="Podcast"><PodcastIcon /></a>
+            <a href="#" aria-label="Подкаст"><PodcastIcon /></a>
           </div>
           <a href="#contact" className="hero__join arrow-link">
-            JOIN THE LIST <ArrowIcon />
+            ПОДПИСАТЬСЯ <ArrowIcon />
           </a>
           <button className="mobile-menu-btn" onClick={openMenu}>
-            Menu <ArrowIcon />
+            Меню <ArrowIcon />
           </button>
         </div>
 
         <h1 className="hero__name">
-          ANNA<br />VOLKOVA
+          АННА<br />ВОЛКОВА
         </h1>
 
         <div className="hero__nav">
           <nav>
-            <a href="#about">ABOUT</a>
-            <a href="#portfolio">PORTFOLIO</a>
-            <a href="#services">SERVICES</a>
-            <a href="#journal">JOURNAL</a>
-            <a href="#contact">CONTACT</a>
+            <a href="#about">О СЕБЕ</a>
+            <a href="#portfolio">ПОРТФОЛИО</a>
+            <a href="#services">УСЛУГИ</a>
+            <a href="#journal">ЖУРНАЛ</a>
+            <a href="#contact">КОНТАКТЫ</a>
           </nav>
         </div>
 
         <p className="hero__tagline">
-          We capture light, create stories, and <em>empower you</em> to feel it forever.
+          Мы ловим свет, создаём истории и позволяем <em>вам</em> чувствовать это вечно.
         </p>
       </header>
 
-      {/* ========== MANIFESTO SECTION ========== */}
+      {/* ========== МАНИФЕСТ ========== */}
       <section className="manifesto" id="about">
         <div className="manifesto__inner">
           <h2 className="manifesto__headline mixed-headline reveal">
-            <em>you</em> DON'T POSE.
+            <em>ты</em> НЕ ПОЗИРУЕШЬ.
           </h2>
 
           <div className="manifesto__collage reveal">
             <img
               className="manifesto__collage-img1"
               src="https://picsum.photos/seed/manifesto1/600/800"
-              alt="Color editorial portrait"
+              alt="Цветной editorial-портрет"
               loading="lazy"
             />
             <img
               className="manifesto__collage-img2"
               src="https://picsum.photos/seed/manifesto2/400/530?grayscale"
-              alt="Black and white portrait"
+              alt="Чёрно-белый портрет"
               loading="lazy"
             />
           </div>
 
           <div className="reveal">
             <p className="manifesto__text">
-              I'm Anna — an editorial and fashion photographer based between Milan and New York.
-              For over a decade, I've been helping women step in front of the lens not to perform,
-              but to <em style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>exist</em>.
-              My work lives at the intersection of raw emotion and refined composition — where
-              imperfection becomes the most powerful form of beauty. Every session is designed
-              to make you forget the camera is there.
+              Я Анна — editorial и fashion-фотограф, работаю между Миланом и Москвой.
+              Уже более десяти лет я помогаю женщинам вставать перед камерой не для того,
+              чтобы <em style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>играть</em>,
+              а чтобы быть собой. Мои работы живут на стыке живых эмоций и выверенной композиции —
+              там, где несовершенство становится самой сильной формой красоты. Каждая съёмка
+              создана так, чтобы вы забыли о присутствии камеры.
             </p>
             <a href="#services" className="btn arrow-link">
-              HOW I WORK <ArrowIcon />
+              КАК Я РАБОТАЮ <ArrowIcon />
             </a>
           </div>
         </div>
       </section>
 
-      {/* ========== PORTFOLIO SECTION ========== */}
+      {/* ========== ПОРТФОЛИО ========== */}
       <section className="portfolio curved-top curved-top--cream" id="portfolio">
-        <span className="watermark watermark--light" style={{ top: '10%', right: '-5%' }}>WORK</span>
+        <span className="watermark watermark--light" style={{ top: '10%', right: '-5%' }}>РАБОТЫ</span>
 
         <div className="portfolio__inner">
-          <h2 className="portfolio__title reveal">SELECTED WORKS</h2>
+          <h2 className="portfolio__title reveal">ИЗБРАННЫЕ РАБОТЫ</h2>
 
           <div className="portfolio__grid">
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">WEDDINGS</span>
+              <span className="portfolio__card-label">СВАДЬБЫ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/wedding1/500/667"
-                alt="Wedding photography"
+                alt="Свадебная фотография"
                 loading="lazy"
               />
-              <a href="#" className="portfolio__card-link arrow-link">VIEW <ArrowIcon /></a>
+              <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
             </div>
 
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">PORTRAITS</span>
+              <span className="portfolio__card-label">ПОРТРЕТЫ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/portrait1/500/667"
-                alt="Portrait photography"
+                alt="Портретная съёмка"
                 loading="lazy"
               />
-              <a href="#" className="portfolio__card-link arrow-link">VIEW <ArrowIcon /></a>
+              <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
             </div>
 
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">FAMILIES</span>
+              <span className="portfolio__card-label">СЕМЬИ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/family1/500/667"
-                alt="Family photography"
+                alt="Семейная съёмка"
                 loading="lazy"
               />
-              <a href="#" className="portfolio__card-link arrow-link">VIEW <ArrowIcon /></a>
+              <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
             </div>
 
             <div className="portfolio__card reveal">
-              <span className="portfolio__card-label">BRANDING</span>
+              <span className="portfolio__card-label">БРЕНДИНГ</span>
               <img
                 className="portfolio__card-img"
                 src="https://picsum.photos/seed/brand1/500/667"
-                alt="Brand photography"
+                alt="Бренд-съёмка"
                 loading="lazy"
               />
-              <a href="#" className="portfolio__card-link arrow-link">VIEW <ArrowIcon /></a>
+              <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========== SERVICES SECTION ========== */}
+      {/* ========== УСЛУГИ ========== */}
       <section className="services" id="services">
         <div className="services__inner">
           <h2 className="services__headline mixed-headline reveal">
-            <em>the experience</em> IS EVERYTHING.
+            <em>опыт</em> — ЭТО ВСЁ.
           </h2>
 
           <div className="services__steps">
             <div className="services__step reveal">
               <span className="services__step-num">01</span>
               <div className="services__step-content">
-                <h3>CONSULTATION</h3>
-                <p>We start with a conversation — your vision, your story, the feeling you want to carry home. I'll guide you through wardrobe, location, and mood so every detail aligns.</p>
+                <h3>КОНСУЛЬТАЦИЯ</h3>
+                <p>Всё начинается с разговора — ваше видение, ваша история, ощущение, которое вы хотите унести с собой. Я помогу подобрать образ, локацию и настроение, чтобы каждая деталь работала на результат.</p>
               </div>
             </div>
 
             <div className="services__step reveal">
               <span className="services__step-num">02</span>
               <div className="services__step-content">
-                <h3>THE SESSION</h3>
-                <p>No stiff poses. No rushing. I create a space where you can breathe, move, and be. Natural light, intentional composition, and genuine connection with the camera.</p>
+                <h3>СЪЁМКА</h3>
+                <p>Никаких застывших поз. Никакой спешки. Я создаю пространство, где можно дышать, двигаться и быть собой. Естественный свет, осознанная композиция и настоящая связь с камерой.</p>
               </div>
             </div>
 
             <div className="services__step reveal">
               <span className="services__step-num">03</span>
               <div className="services__step-content">
-                <h3>THE GALLERY</h3>
-                <p>Within two weeks, you'll receive a curated gallery of edited images — each one hand-selected and retouched to honor the moment. Prints and albums available.</p>
+                <h3>ГАЛЕРЕЯ</h3>
+                <p>В течение двух недель вы получите кураторскую галерею отредактированных изображений — каждое отобрано вручную и обработано с уважением к моменту. Доступны печати и фотокниги.</p>
               </div>
             </div>
           </div>
 
           <a href="#contact" className="btn arrow-link reveal">
-            BOOK A SESSION <ArrowIcon />
+            ЗАПИСАТЬСЯ НА СЪЁМКУ <ArrowIcon />
           </a>
         </div>
       </section>
 
-      {/* ========== SOCIAL SECTION ========== */}
+      {/* ========== СОЦСЕТИ ========== */}
       <section className="social curved-top curved-top--cream" id="journal">
-        <span className="watermark watermark--light" style={{ top: '5%', left: '-5%' }}>SOCIAL</span>
+        <span className="watermark watermark--light" style={{ top: '5%', left: '-5%' }}>ЛЕНТА</span>
 
         <div className="social__inner">
           <div className="reveal">
-            <h2 className="social__headline">THE FEED</h2>
+            <h2 className="social__headline">ЛЕНТА</h2>
             <p className="social__text">
-              <em>Tune in for</em> <strong>BEHIND-THE-SCENES</strong>,{' '}
-              <em>real moments</em> and <strong>DAILY INSPO.</strong>
+              <em>Заходите за</em> <strong>ЗАКАДРЬЕМ</strong>,{' '}
+              <em>живыми моментами</em> и <strong>ВДОХНОВЛЕНИЕМ.</strong>
             </p>
             <p className="social__desc">
-              Follow along for raw BTS from every shoot, styling tips, location secrets,
-              and the occasional existential crisis about aperture settings.
-              This is where the work lives between the galleries.
+              Подписывайтесь — здесь закулисье каждой съёмки, советы по стилю,
+              секреты локаций и редкие моменты чистого творчества.
+              Именно здесь работа живёт между галереями.
             </p>
           </div>
 
@@ -306,21 +306,21 @@ export default function App() {
                   <img
                     className="phone__avatar"
                     src="https://picsum.photos/seed/avatar/100/100"
-                    alt="Anna Volkova avatar"
+                    alt="Аватар Анны Волковой"
                   />
                   <div className="phone__nick">@anna.volkova</div>
-                  <div className="phone__bio">Editorial & Fashion Photographer</div>
+                  <div className="phone__bio">Editorial & fashion-фотограф</div>
                 </div>
                 <div className="phone__grid">
-                  <img src="https://picsum.photos/seed/ig1/200/200" alt="Instagram post 1" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig2/200/200" alt="Instagram post 2" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig3/200/200" alt="Instagram post 3" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig4/200/200" alt="Instagram post 4" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig5/200/200" alt="Instagram post 5" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig6/200/200" alt="Instagram post 6" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig7/200/200" alt="Instagram post 7" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig8/200/200" alt="Instagram post 8" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig9/200/200" alt="Instagram post 9" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig1/200/200" alt="Пост 1" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig2/200/200" alt="Пост 2" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig3/200/200" alt="Пост 3" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig4/200/200" alt="Пост 4" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig5/200/200" alt="Пост 5" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig6/200/200" alt="Пост 6" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig7/200/200" alt="Пост 7" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig8/200/200" alt="Пост 8" loading="lazy" />
+                  <img src="https://picsum.photos/seed/ig9/200/200" alt="Пост 9" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -328,71 +328,71 @@ export default function App() {
         </div>
       </section>
 
-      {/* ========== NEWSLETTER SECTION ========== */}
+      {/* ========== РАССЫЛКА ========== */}
       <section className="newsletter" id="contact">
         <div className="newsletter__bg">
           <img
             src="https://picsum.photos/seed/window/1920/1080?grayscale"
-            alt="Window with curtains background"
+            alt="Окно с занавесками"
             loading="lazy"
           />
         </div>
 
         <div className="newsletter__inner reveal">
           <h2 className="newsletter__headline mixed-headline">
-            <em>Making inboxes more</em> <strong>INSPIRATIONAL</strong> <em>since '20.</em>
+            <em>Делаем почту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong> <em>с 2020 года.</em>
           </h2>
           <p className="newsletter__desc">
-            A monthly letter with behind-the-scenes stories, early access to new work,
-            and the occasional love letter to golden hour. No spam, ever.
+            Ежемесячное письмо с историями из закулисья, ранним доступом к новым работам
+            и редкими размышлениями о золотом часе. Никакого спама — только вдохновение.
           </p>
           <form className="newsletter__form" ref={formRef} onSubmit={handleFormSubmit}>
             <input
               className="newsletter__input"
               type="email"
-              placeholder="your@email.com"
+              placeholder="ваш@email.ru"
               required
-              aria-label="Email address"
+              aria-label="Адрес электронной почты"
             />
             <button type="submit" className="btn arrow-link">
-              JOIN <ArrowIcon />
+              ПОДПИСАТЬСЯ <ArrowIcon />
             </button>
           </form>
           <p className="newsletter__success" ref={successRef}>
-            Thank you! Check your inbox.
+            Спасибо! Проверьте вашу почту.
           </p>
         </div>
       </section>
 
-      {/* ========== FOOTER ========== */}
+      {/* ========== ПОДВАЛ ========== */}
       <footer className="footer curved-top curved-top--black">
         <div className="marquee">
           <div className="marquee__track">
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
-            <span className="marquee__text">LET'S CREATE —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
+            <span className="marquee__text">СОЗДАВАТЬ —</span>
           </div>
         </div>
 
         <div className="footer__cta">
-          <h2 className="footer__cta-title">READY TO BOOK?</h2>
-          <a href="mailto:hello@annavolkova.com" className="btn btn--outline arrow-link">
-            CONTACT <ArrowIcon />
+          <h2 className="footer__cta-title">ГОТОВЫ ЗАПИСАТЬСЯ?</h2>
+          <a href="mailto:hello@annavolkova.ru" className="btn btn--outline arrow-link">
+            СВЯЗАТЬСЯ <ArrowIcon />
           </a>
         </div>
 
         <div className="footer__bottom">
           <nav className="footer__bottom-nav">
-            <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#services">Services</a>
-            <a href="#journal">Journal</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">О себе</a>
+            <a href="#portfolio">Портфолио</a>
+            <a href="#services">Услуги</a>
+            <a href="#journal">Журнал</a>
+            <a href="#contact">Контакты</a>
           </nav>
 
           <div className="footer__bottom-social">
@@ -402,7 +402,7 @@ export default function App() {
             <a href="#" aria-label="YouTube"><YoutubeIcon /></a>
           </div>
 
-          <span className="footer__copy">© {currentYear} Anna Volkova. All rights reserved.</span>
+          <span className="footer__copy">© {currentYear} Анна Волкова. Все права защищены.</span>
         </div>
       </footer>
     </>
