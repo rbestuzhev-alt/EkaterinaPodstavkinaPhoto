@@ -186,9 +186,10 @@ export default function App() {
     const lightboxImg = lightbox?.querySelector('.lightbox-img') as HTMLImageElement;
     const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLButtonElement;
 
-    const openLightbox = (src: string) => {
+    const openLightbox = (src: string, alt?: string) => {
       if (lightbox && lightboxImg) {
         lightboxImg.src = src;
+        lightboxImg.alt = alt || 'Увеличенное изображение';
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
@@ -204,14 +205,20 @@ export default function App() {
       }
     };
 
-    // Обработчики кликов на изображения портфолио
-    const portfolioImages = document.querySelectorAll('.portfolio__card-img');
-    portfolioImages.forEach((img) => {
-      img.addEventListener('click', () => {
-        const src = (img as HTMLImageElement).src;
-        openLightbox(src);
-      });
-    });
+    // ДЕЛЕГИРОВАНИЕ СОБЫТИЙ - гарантированно работает
+    const handlePortfolioClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const img = target.closest('.portfolio__card-img') as HTMLImageElement;
+      
+      if (img) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Клик по изображению сработал', img.src);
+        openLightbox(img.src, img.alt);
+      }
+    };
+
+    document.addEventListener('click', handlePortfolioClick);
 
     // Закрытие lightbox
     if (lightboxClose) {
@@ -244,6 +251,7 @@ export default function App() {
       if (collageParallaxRafId) {
         cancelAnimationFrame(collageParallaxRafId);
       }
+      document.removeEventListener('click', handlePortfolioClick);
       document.removeEventListener('keydown', handleEscape);
     };
   }, []);
