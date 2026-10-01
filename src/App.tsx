@@ -181,64 +181,83 @@ export default function App() {
       updateCollageParallax(); // Начальное положение
     }
 
-    /* ---------- LIGHTBOX ---------- */
-    const lightbox = document.getElementById('portfolio-lightbox') as HTMLElement;
-    const lightboxImg = lightbox?.querySelector('.lightbox-img') as HTMLImageElement;
-    const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLButtonElement;
-
-    const openLightbox = (src: string, alt?: string) => {
-      if (lightbox && lightboxImg) {
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || 'Увеличенное изображение';
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    /* ---------- LIGHTBOX - УНИВЕРСАЛЬНОЕ ДЕЛЕГИРОВАНИЕ ---------- */
+    
+    // Обработка открытия лайтбокса
+    const handleLightboxOpen = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const img = target.closest('img') as HTMLImageElement;
+      
+      // Проверяем, что клик был по изображению внутри портфолио
+      const portfolioSection = img?.closest('.portfolio');
+      
+      if (img && portfolioSection) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('✅ Клик по изображению:', img.src);
+        
+        const lightbox = document.getElementById('portfolio-lightbox');
+        if (!lightbox) {
+          console.error('❌ Лайтбокс не найден! Проверь HTML.');
+          return;
+        }
+        
+        const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
+        if (lightboxImg) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || 'Избранная работа';
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          console.log('✅ Лайтбокс открыт');
+        } else {
+          console.error('❌ .lightbox-img не найден внутри лайтбокса!');
+        }
       }
     };
 
-    const closeLightbox = () => {
-      if (lightbox) {
+    // Обработка закрытия лайтбокса
+    const handleLightboxClose = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const lightbox = document.getElementById('portfolio-lightbox');
+      if (!lightbox) return;
+      
+      const closeBtn = target.closest('.lightbox-close');
+      const clickedOnBackground = target === lightbox;
+      
+      if (closeBtn || clickedOnBackground) {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        console.log('✅ Лайтбокс закрыт');
+        
+        // Очищаем src после анимации
         setTimeout(() => {
+          const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
           if (lightboxImg) lightboxImg.src = '';
         }, 400);
       }
     };
 
-    // ДЕЛЕГИРОВАНИЕ СОБЫТИЙ - гарантированно работает
-    const handlePortfolioClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const img = target.closest('.portfolio__card-img') as HTMLImageElement;
-      
-      if (img) {
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Клик по изображению сработал', img.src);
-        openLightbox(img.src, img.alt);
-      }
-    };
-
-    document.addEventListener('click', handlePortfolioClick);
-
-    // Закрытие lightbox
-    if (lightboxClose) {
-      lightboxClose.addEventListener('click', closeLightbox);
-    }
-
-    if (lightbox) {
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-          closeLightbox();
-        }
-      });
-    }
-
     // Закрытие по Escape
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
-        closeLightbox();
+      if (e.key === 'Escape') {
+        const lightbox = document.getElementById('portfolio-lightbox');
+        if (lightbox && lightbox.classList.contains('active')) {
+          lightbox.classList.remove('active');
+          document.body.style.overflow = '';
+          console.log('✅ Лайтбокс закрыт по Escape');
+          
+          setTimeout(() => {
+            const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
+            if (lightboxImg) lightboxImg.src = '';
+          }, 400);
+        }
       }
     };
+
+    // Регистрируем обработчики
+    document.addEventListener('click', handleLightboxOpen);
+    document.addEventListener('click', handleLightboxClose);
     document.addEventListener('keydown', handleEscape);
 
     return () => {
@@ -251,7 +270,8 @@ export default function App() {
       if (collageParallaxRafId) {
         cancelAnimationFrame(collageParallaxRafId);
       }
-      document.removeEventListener('click', handlePortfolioClick);
+      document.removeEventListener('click', handleLightboxOpen);
+      document.removeEventListener('click', handleLightboxClose);
       document.removeEventListener('keydown', handleEscape);
     };
   }, []);
