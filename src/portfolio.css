@@ -483,7 +483,7 @@ a {
   color: var(--milk);
   font-family: 'Italiana', serif;
   font-size: clamp(2.4rem, 11.5vw, 12rem);
-  line-height: 0.95;
+  line-height: 0.32;
   letter-spacing: 0.02em;
   margin-top: -40px;
   text-shadow: 0 4px 30px rgba(0,0,0,0.3);
