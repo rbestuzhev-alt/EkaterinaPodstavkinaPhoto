@@ -60,6 +60,11 @@ body.loaded::after {
 .line-mask .line {
   display: block;
   overflow: hidden;
+  line-height: 1.15;
+}
+
+.line-mask .line + .line {
+  margin-top: -0.35em;
 }
 
 .line-mask .line-inner {
@@ -483,7 +488,7 @@ a {
   color: var(--milk);
   font-family: 'Italiana', serif;
   font-size: clamp(2.4rem, 11.5vw, 12rem);
-  line-height: 0.32;
+  line-height: 1.1;
   letter-spacing: 0.02em;
   margin-top: -40px;
   text-shadow: 0 4px 30px rgba(0,0,0,0.3);
