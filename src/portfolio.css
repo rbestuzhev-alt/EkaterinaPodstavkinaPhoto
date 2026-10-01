@@ -736,10 +736,10 @@ a {
   height: clamp(680px, 96vh, 1000px);
   width: auto;
   max-width: 100%;
-  align-self: center;
-  justify-self: end;
-  margin-right: clamp(16px, 4vw, 56px);
-  margin-block: clamp(-180px, -12vh, -90px);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: clamp(16px, 4vw, 56px);
 }
 
 .insta-shot img {
@@ -1095,6 +1095,8 @@ a {
 
   
   .insta-shot {
+    position: static;
+    transform: none;
     width: min(72vw, 340px);
     height: auto;
     margin: 2rem auto 0;
