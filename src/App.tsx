@@ -130,7 +130,7 @@ export default function App() {
         </div>
 
         <h1 className="hero__name">
-          АННА<br />ВОЛКОВА
+          ЕКАТЕРИНА<br />ПОДСТАВКИНА
         </h1>
 
         <div className="hero__nav">
@@ -172,7 +172,7 @@ export default function App() {
 
           <div className="reveal">
             <p className="manifesto__text">
-              Я Анна — editorial и fashion-фотограф, работаю между Миланом и Москвой.
+              Я Екатерина — editorial и fashion-фотограф, работаю между Миланом и Москвой.
               Уже более десяти лет я помогаю женщинам вставать перед камерой не для того,
               чтобы <em style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>играть</em>,
               а чтобы быть собой. Мои работы живут на стыке живых эмоций и выверенной композиции —
@@ -306,9 +306,9 @@ export default function App() {
                   <img
                     className="phone__avatar"
                     src="https://picsum.photos/seed/avatar/100/100"
-                    alt="Аватар Анны Волковой"
+                    alt="Аватар Екатерины Подставкиной"
                   />
-                  <div className="phone__nick">@anna.volkova</div>
+                  <div className="phone__nick">@ekaterina.podstavkina</div>
                   <div className="phone__bio">Editorial & fashion-фотограф</div>
                 </div>
                 <div className="phone__grid">
@@ -381,7 +381,7 @@ export default function App() {
 
         <div className="footer__cta">
           <h2 className="footer__cta-title">ГОТОВЫ ЗАПИСАТЬСЯ?</h2>
-          <a href="mailto:hello@annavolkova.ru" className="btn btn--outline arrow-link">
+          <a href="mailto:hello@ekaterinapodstavkina.ru" className="btn btn--outline arrow-link">
             СВЯЗАТЬСЯ <ArrowIcon />
           </a>
         </div>
@@ -402,7 +402,7 @@ export default function App() {
             <a href="#" aria-label="YouTube"><YoutubeIcon /></a>
           </div>
 
-          <span className="footer__copy">© {currentYear} Анна Волкова. Все права защищены.</span>
+          <span className="footer__copy">© {currentYear} Екатерина Подставкина. Все права защищены.</span>
         </div>
       </footer>
     </>
