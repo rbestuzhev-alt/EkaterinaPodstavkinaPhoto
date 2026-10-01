@@ -117,31 +117,7 @@ export default function App() {
       }
     });
 
-    /* ---------- LENIS SMOOTH SCROLL ---------- */
-    let lenisInstance: any = null;
-    if (!prefersReducedMotion && (window as any).Lenis) {
-      lenisInstance = new (window as any).Lenis({
-        duration: 1.15,
-        smoothWheel: true,
-      });
 
-      const raf = (time: number) => {
-        lenisInstance?.raf(time);
-        requestAnimationFrame(raf);
-      };
-      requestAnimationFrame(raf);
-
-      // Якорные ссылки через Lenis
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', (e) => {
-          const href = (anchor as HTMLAnchorElement).getAttribute('href');
-          if (href && href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            lenisInstance?.scrollTo(href, { offset: 0, duration: 1.2 });
-          }
-        });
-      });
-    }
 
     /* ---------- ПАРАЛЛАКС ТЕЛЕФОНА INSTAGRAM ---------- */
     let parallaxRafId: number | null = null;
@@ -209,7 +185,6 @@ export default function App() {
       observer.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
-      lenisInstance?.destroy();
       if (parallaxRafId) {
         cancelAnimationFrame(parallaxRafId);
       }
