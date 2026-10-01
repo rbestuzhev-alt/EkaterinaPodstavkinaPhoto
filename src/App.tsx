@@ -300,8 +300,8 @@ export default function App() {
       <section className="newsletter" id="contact">
         <div className="newsletter__bg">
           <img
-            src="https://picsum.photos/seed/window/1920/1080?grayscale"
-            alt="Окно с занавесками"
+            src="https://i.postimg.cc/7PzNYb8M/Being-a-woman.jpg"
+            alt="Being a woman"
             loading="lazy"
           />
         </div>
