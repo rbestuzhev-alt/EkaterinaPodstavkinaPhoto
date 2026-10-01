@@ -598,6 +598,7 @@ a {
   object-fit: cover;
   position: relative;
   z-index: 1;
+  will-change: transform;
 }
 
 .manifesto__collage-img2 {
@@ -610,6 +611,7 @@ a {
   z-index: 2;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   filter: grayscale(100%);
+  will-change: transform;
 }
 
 .manifesto__text {
@@ -894,10 +896,20 @@ a {
   .insta-shot img {
     transform: none !important;
   }
+  
+  .manifesto__collage-img1,
+  .manifesto__collage-img2 {
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .insta-shot img {
+    transform: none !important;
+  }
+  
+  .manifesto__collage-img1,
+  .manifesto__collage-img2 {
     transform: none !important;
   }
 }

@@ -171,6 +171,40 @@ export default function App() {
       updateParallax(); // Начальное положение
     }
 
+    /* ---------- ПАРАЛЛАКС ФОТОГРАФИЙ КОЛЛАЖА ---------- */
+    let collageParallaxRafId: number | null = null;
+    const collageImg1 = document.querySelector('.manifesto__collage-img1') as HTMLElement;
+    const collageImg2 = document.querySelector('.manifesto__collage-img2') as HTMLElement;
+    const manifestoSection = document.querySelector('.manifesto') as HTMLElement;
+
+    if (!prefersReducedMotion && collageImg1 && collageImg2 && manifestoSection && window.innerWidth >= 900) {
+      const updateCollageParallax = () => {
+        const sectionRect = manifestoSection.getBoundingClientRect();
+        const viewportCenter = window.innerHeight / 2;
+        const sectionCenter = sectionRect.top + sectionRect.height / 2;
+        const offset = sectionCenter - viewportCenter;
+        
+        // Большое фото: коэффициент 0.05 (±20-30px)
+        const parallaxValue1 = offset * 0.05;
+        collageImg1.style.transform = `translateY(${parallaxValue1}px)`;
+        
+        // Малое фото: коэффициент 0.08 (±35-45px)
+        const parallaxValue2 = offset * 0.08;
+        collageImg2.style.transform = `translateY(${parallaxValue2}px)`;
+      };
+
+      const handleCollageScroll = () => {
+        if (collageParallaxRafId) return;
+        collageParallaxRafId = requestAnimationFrame(() => {
+          updateCollageParallax();
+          collageParallaxRafId = null;
+        });
+      };
+
+      window.addEventListener('scroll', handleCollageScroll, { passive: true });
+      updateCollageParallax(); // Начальное положение
+    }
+
     return () => {
       observer.disconnect();
       lineObserver.disconnect();
@@ -178,6 +212,9 @@ export default function App() {
       lenisInstance?.destroy();
       if (parallaxRafId) {
         cancelAnimationFrame(parallaxRafId);
+      }
+      if (collageParallaxRafId) {
+        cancelAnimationFrame(collageParallaxRafId);
       }
     };
   }, []);
