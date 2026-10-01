@@ -338,7 +338,7 @@ export default function App() {
 
         <div className="newsletter__inner reveal">
           <h2 className="newsletter__headline mixed-headline">
-            <em>Делаем почту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong> <em>с 2020 года.</em>
+            <em>сделаю вашу ленту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong>
           </h2>
           <p className="newsletter__desc">
             Ежемесячное письмо с историями из закулисья, ранним доступом к новым работам
