@@ -473,12 +473,13 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: opacity 0.3s, color 0.3s;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .hero__join:hover {
-  opacity: 1;
-  color: var(--red);
+  background: var(--red);
+  color: var(--milk);
 }
 
 .hero__name {
