@@ -672,7 +672,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: start;
   position: relative;
   z-index: 2;
 }
@@ -724,6 +724,7 @@ a {
   padding: 12px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.2);
   position: relative;
+  align-self: center;
 }
 
 .phone__notch {
