@@ -796,6 +796,19 @@ a {
   color: var(--milk);
 }
 
+.newsletter__inner .btn {
+  background: var(--red);
+  color: var(--milk);
+  transition: background 0.35s ease, border-color 0.35s ease;
+  border: 1px solid transparent;
+}
+
+.newsletter__inner .btn:hover {
+  background: var(--black);
+  color: var(--milk);
+  border: 1px solid rgba(239,235,228,.35);
+}
+
 .newsletter__headline {
   font-size: clamp(32px, 5vw, 56px);
   margin-bottom: 24px;
