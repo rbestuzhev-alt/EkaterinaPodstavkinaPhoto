@@ -205,11 +205,25 @@ export default function App() {
         
         const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
         if (lightboxImg) {
+          // 1. Сбрасываем состояние (на случай повторного открытия)
+          lightbox.classList.remove('active');
+          lightboxImg.style.transition = 'none';
+          lightboxImg.style.opacity = '0';
+          lightboxImg.style.transform = 'scale(0.92) translateY(12px)';
+
+          // 2. Меняем src
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt || 'Избранная работа';
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
-          console.log('✅ Лайтбокс открыт');
+
+          // 3. Показываем фон с плавной анимацией
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              lightboxImg.style.transition = '';
+              lightbox.classList.add('active');
+              document.body.style.overflow = 'hidden';
+              console.log('✅ Лайтбокс открыт');
+            });
+          });
         } else {
           console.error('❌ .lightbox-img не найден внутри лайтбокса!');
         }
@@ -234,7 +248,7 @@ export default function App() {
         setTimeout(() => {
           const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
           if (lightboxImg) lightboxImg.src = '';
-        }, 400);
+        }, 500);
       }
     };
 
@@ -250,7 +264,7 @@ export default function App() {
           setTimeout(() => {
             const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
             if (lightboxImg) lightboxImg.src = '';
-          }, 400);
+          }, 500);
         }
       }
     };

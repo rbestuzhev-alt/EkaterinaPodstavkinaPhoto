@@ -1307,15 +1307,15 @@ a {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(11, 10, 8, 0.92);
-  backdrop-filter: blur(8px);
+  background: rgba(11, 10, 8, 0.94);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
 }
 
 .lightbox.active {
@@ -1327,26 +1327,34 @@ a {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
-  transform: scale(0.95);
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: scale(0.92) translateY(12px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .lightbox.active .lightbox-img {
-  transform: scale(1);
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 
 .lightbox-close {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 28px;
+  right: 32px;
   background: none;
   border: none;
-  color: var(--milk);
-  font-size: 48px;
-  line-height: 1;
+  color: #EFEBE4;
+  font-size: 32px;
   cursor: pointer;
-  transition: color 0.3s ease;
-  z-index: 10000;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox-close:hover {
+  transform: scale(1.15);
 }
 
 .lightbox-close:hover {
