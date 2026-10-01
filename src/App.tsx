@@ -146,7 +146,7 @@ export default function App() {
           <div className="manifesto__collage reveal">
             <img
               className="manifesto__collage-img1"
-              src="https://i.postimg.cc/4d7TqV0s/651182840-17860030887613066-5146487858387492302-n.webp"
+              src="https://i.postimg.cc/wMnMn920/611280113-17850826491613066-4070977003915591454-n.jpg"
               alt="Кадр со съёмки Екатерины Подставкиной"
               loading="lazy"
             />
