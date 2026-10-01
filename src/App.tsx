@@ -95,8 +95,8 @@ export default function App() {
       <header className="hero" id="hero">
         <div className="hero__bg">
           <img
-            src="https://i.postimg.cc/Kzc9w2s4/743563696-17879345910613066-6066616939586889113-n.jpg"
-            alt="Екатерина Подставкина — фотограф"
+            src="https://i.postimg.cc/MZmBXBHJ/hiro-fon-kati.webp"
+            alt="hiro-fon-kati"
           />
         </div>
         <div className="hero__overlay"></div>
