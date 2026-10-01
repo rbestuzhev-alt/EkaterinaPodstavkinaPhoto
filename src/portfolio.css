@@ -356,11 +356,13 @@ a {
   text-align: center;
   color: var(--milk);
   font-family: 'Italiana', serif;
-  font-size: clamp(64px, 14vw, 200px);
+  font-size: clamp(2.4rem, 11.5vw, 12rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
   margin-top: -40px;
   text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  white-space: nowrap;
+  padding-inline: 4vw;
 }
 
 .hero__nav {
