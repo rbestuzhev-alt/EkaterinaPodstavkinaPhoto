@@ -47,8 +47,6 @@ const PodcastIcon = () => (
    ============================================ */
 
 export default function App() {
-  const formRef = useRef<HTMLFormElement>(null);
-  const successRef = useRef<HTMLParagraphElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,16 +75,6 @@ export default function App() {
 
   const closeMenu = () => {
     overlayRef.current?.classList.remove('active');
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (successRef.current) {
-      successRef.current.classList.add('show');
-    }
-    if (formRef.current) {
-      formRef.current.reset();
-    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -343,21 +331,14 @@ export default function App() {
           <p className="newsletter__desc">
             Все мои работы в Instagram
           </p>
-          <form className="newsletter__form" ref={formRef} onSubmit={handleFormSubmit}>
-            <input
-              className="newsletter__input"
-              type="email"
-              placeholder="ваш@email.ru"
-              required
-              aria-label="Адрес электронной почты"
-            />
-            <button type="submit" className="btn arrow-link">
-              ПОДПИСАТЬСЯ <ArrowIcon />
-            </button>
-          </form>
-          <p className="newsletter__success" ref={successRef}>
-            Спасибо! Проверьте вашу почту.
-          </p>
+          <a
+            href="https://instagram.com/ekaterina.podstavkina"
+            target="_blank"
+            rel="noopener"
+            className="btn arrow-link"
+          >
+            Я В INSTAGRAM <ArrowIcon />
+          </a>
         </div>
       </section>
 

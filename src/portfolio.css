@@ -850,48 +850,7 @@ a {
   line-height: 1.7;
 }
 
-.newsletter__form {
-  display: flex;
-  gap: 16px;
-  align-items: flex-end;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
-.newsletter__input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--milk);
-  color: var(--milk);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  padding: 12px 4px;
-  width: 280px;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.newsletter__input::placeholder {
-  color: var(--smoke);
-}
-
-.newsletter__input:focus {
-  border-bottom-color: var(--red);
-}
-
-.newsletter__success {
-  color: var(--red);
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 18px;
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.newsletter__success.show {
-  opacity: 1;
-}
 
 /* ============================================
    FOOTER
@@ -1163,14 +1122,7 @@ a {
     padding-right: 20px;
   }
   
-  .newsletter__form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .newsletter__input {
-    width: 100%;
-  }
+
   
   .phone {
     width: 240px;
