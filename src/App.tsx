@@ -332,7 +332,7 @@ export default function App() {
             Все мои работы в Instagram
           </p>
           <a
-            href="https://www.instagram.com/eppho.to"
+            href="https://www.instagram.com/eppho.to/?hl=ru"
             target="_blank"
             rel="noopener"
             className="btn arrow-link"
