@@ -107,9 +107,8 @@ export default function App() {
               </svg>
             </a>
             <a href="https://t.me/pro100katerinkaa" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21.5 2.5L2 11.5l6.5 2.5 2.5 6.5z"/>
-                <path d="M11 13l8-8"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
               </svg>
             </a>
             <a href="tel:+70000000000" aria-label="Телефон" title="Телефон">
