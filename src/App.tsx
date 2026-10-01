@@ -330,8 +330,8 @@ export default function App() {
             <div className="portfolio__card reveal">
               <img
                 className="portfolio__card-img"
-                src="https://picsum.photos/seed/wedding1/500/667"
-                alt="Свадебная фотография"
+                src="https://i.postimg.cc/HnSvmshV/Ph-eppho-to.jpg"
+                alt="Избранная работа 1"
                 loading="lazy"
               />
               <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
@@ -340,8 +340,8 @@ export default function App() {
             <div className="portfolio__card reveal">
               <img
                 className="portfolio__card-img"
-                src="https://picsum.photos/seed/portrait1/500/667"
-                alt="Портретная съёмка"
+                src="https://i.postimg.cc/c42TBjqh/772036219-17883831528613066-8413099912558788250-n.jpg"
+                alt="Избранная работа 2"
                 loading="lazy"
               />
               <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
@@ -350,8 +350,8 @@ export default function App() {
             <div className="portfolio__card reveal">
               <img
                 className="portfolio__card-img"
-                src="https://picsum.photos/seed/family1/500/667"
-                alt="Семейная съёмка"
+                src="https://i.postimg.cc/PJNzmbSs/733385607-17878672101613066-1236585551544194995-n.jpg"
+                alt="Избранная работа 3"
                 loading="lazy"
               />
               <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
@@ -360,8 +360,8 @@ export default function App() {
             <div className="portfolio__card reveal">
               <img
                 className="portfolio__card-img"
-                src="https://picsum.photos/seed/brand1/500/667"
-                alt="Бренд-съёмка"
+                src="https://i.postimg.cc/bN7Httkz/748740325-17879988873613066-8812554791484293941-n.jpg"
+                alt="Избранная работа 4"
                 loading="lazy"
               />
               <a href="#" className="portfolio__card-link arrow-link">СМОТРЕТЬ <ArrowIcon /></a>
