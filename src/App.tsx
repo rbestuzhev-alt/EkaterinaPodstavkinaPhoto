@@ -337,7 +337,7 @@ export default function App() {
             rel="noopener"
             className="btn arrow-link"
           >
-            Я В INSTAGRAM <ArrowIcon />
+            В INSTAGRAM <ArrowIcon />
           </a>
         </div>
       </section>
