@@ -738,7 +738,7 @@ a {
   max-width: 100%;
   position: absolute;
   top: 50%;
-  transform: translateY(calc(-50% + clamp(24px, 5vh, 64px)));
+  transform: translateY(calc(-50% + clamp(48px, 8vh, 96px)));
   right: clamp(16px, 4vw, 56px);
 }
 
