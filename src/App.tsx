@@ -118,7 +118,7 @@ export default function App() {
         </div>
 
         <h1 className="hero__name">
-          ЕКАТЕРИНА<br />ПОДСТАВКИНА
+          ПОДСТАВКИНА<br />ЕКАТЕРИНА
         </h1>
 
         <div className="hero__nav">
