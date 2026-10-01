@@ -275,7 +275,7 @@ export default function App() {
             <h2 className="social__headline">INSTAGRAM</h2>
             <p className="social__text">
               <em>Заходите за</em> <strong>ЭСТЕТИКОЙ</strong>,{' '}
-              <em>живыми моментами</em> и <strong>ПЛЁНКОЙ.</strong>
+              <em>живыми моментами</em> и плёнкой.
             </p>
           </div>
 
