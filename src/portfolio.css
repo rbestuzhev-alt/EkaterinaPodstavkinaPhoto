@@ -619,7 +619,7 @@ a {
   color: var(--milk);
   max-width: 40ch;
   margin-bottom: 48px;
-  transform: translateY(-1.55em);
+  transform: translateY(-3.1em);
 }
 
 .manifesto__text em {
