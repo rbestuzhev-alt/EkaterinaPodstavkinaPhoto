@@ -36,11 +36,7 @@ const YoutubeIcon = () => (
   </svg>
 );
 
-const PodcastIcon = () => (
-  <svg viewBox="0 0 24 24" aria-label="Подкаст">
-    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2c2.275 0 4.363.785 6.023 2.097L6.097 18.023A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2zm0 20c-2.275 0-4.363-.785-6.023-2.097l11.926-13.926A9.953 9.953 0 0122 12c0 5.514-4.486 10-10 10zm-1-7v-4l4 2-4 2z"/>
-  </svg>
-);
+
 
 /* ============================================
    ГЛАВНЫЙ КОМПОНЕНТ ПРИЛОЖЕНИЯ
@@ -103,11 +99,24 @@ export default function App() {
 
         <div className="hero__top">
           <div className="hero__socials">
-            <a href="#" aria-label="Instagram"><InstagramIcon /></a>
-            <a href="#" aria-label="Facebook"><FacebookIcon /></a>
-            <a href="#" aria-label="LinkedIn"><LinkedInIcon /></a>
-            <a href="#" aria-label="YouTube"><YoutubeIcon /></a>
-            <a href="#" aria-label="Подкаст"><PodcastIcon /></a>
+            <a href="https://www.instagram.com/eppho.to/?hl=ru" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://t.me/pro100katerinkaa" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21.5 2.5L2 11.5l6.5 2.5 2.5 6.5z"/>
+                <path d="M11 13l8-8"/>
+              </svg>
+            </a>
+            <a href="tel:+70000000000" aria-label="Телефон" title="Телефон">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </a>
           </div>
           <a href="#contact" className="hero__join arrow-link">
             ПОДПИСАТЬСЯ <ArrowIcon />

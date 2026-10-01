@@ -330,7 +330,8 @@ a {
 .hero__socials svg {
   width: 20px;
   height: 20px;
-  fill: currentColor;
+  stroke: currentColor;
+  fill: none;
 }
 
 .hero__join {
