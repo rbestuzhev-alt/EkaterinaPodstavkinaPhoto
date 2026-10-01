@@ -1307,20 +1307,26 @@ a {
 #portfolio-lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(11, 10, 8, 0.94);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(11, 10, 8, 0.94);
+  
+  /* КЛЮЧ: всегда flex, видимость только через opacity + visibility */
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.4s ease;
+  
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
   overscroll-behavior: contain;
 }
 
 #portfolio-lightbox.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
 }
 
 #portfolio-lightbox .lightbox-img {
@@ -1328,8 +1334,8 @@ a {
   max-height: 90vh;
   object-fit: contain;
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: scale(0.92);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
 }
 
 #portfolio-lightbox.active .lightbox-img {

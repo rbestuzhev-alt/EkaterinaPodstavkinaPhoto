@@ -183,8 +183,6 @@ export default function App() {
 
     /* ---------- LIGHTBOX - УНИВЕРСАЛЬНОЕ ДЕЛЕГИРОВАНИЕ ---------- */
     
-    let savedScrollY = 0;
-    
     // Обработка открытия лайтбокса
     const handleLightboxOpen = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -207,30 +205,13 @@ export default function App() {
         
         const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
         if (lightboxImg) {
-          // Сначала убираем класс (если был)
-          lightbox.classList.remove('active');
-          
-          // Сохраняем текущую позицию скролла
-          savedScrollY = window.scrollY;
-          
-          // Фиксируем body на месте (вместо overflow: hidden)
-          document.body.style.position = 'fixed';
-          document.body.style.top = `-${savedScrollY}px`;
-          document.body.style.width = '100%';
-          
           // Меняем src
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt || 'Избранная работа';
           
-          // Ждём один кадр, чтобы браузер применил начальное состояние
-          setTimeout(() => {
-            lightbox.classList.add('active');
-            console.log('✅ Лайтбокс открыт');
-            
-            // ДИАГНОСТИКА
-            console.log('lightbox классы:', lightbox.className);
-            console.log('img стили:', window.getComputedStyle(lightboxImg).opacity, window.getComputedStyle(lightboxImg).transform);
-          }, 50);
+          // Показываем лайтбокс
+          lightbox.classList.add('active');
+          console.log('✅ Лайтбокс открыт');
         } else {
           console.error('❌ .lightbox-img не найден внутри лайтбокса!');
         }
@@ -254,12 +235,6 @@ export default function App() {
         setTimeout(() => {
           const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
           if (lightboxImg) lightboxImg.src = '';
-          
-          // Возвращаем скролл на место
-          document.body.style.position = '';
-          document.body.style.top = '';
-          document.body.style.width = '';
-          window.scrollTo(0, savedScrollY);
         }, 500);
       }
     };
@@ -275,12 +250,6 @@ export default function App() {
           setTimeout(() => {
             const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
             if (lightboxImg) lightboxImg.src = '';
-            
-            // Возвращаем скролл на место
-            document.body.style.position = '';
-            document.body.style.top = '';
-            document.body.style.width = '';
-            window.scrollTo(0, savedScrollY);
           }, 500);
         }
       }
