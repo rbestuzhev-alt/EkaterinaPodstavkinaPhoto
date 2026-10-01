@@ -719,73 +719,21 @@ a {
   margin-top: 24px;
 }
 
-/* Phone mockup */
-.phone {
-  width: 280px;
-  margin: 0 auto;
-  background: var(--black);
-  border-radius: 36px;
-  padding: 12px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.2);
-  position: relative;
+/* Instagram shot */
+.insta-shot {
+  aspect-ratio: 1284 / 2646;
+  overflow: hidden;
+  height: clamp(480px, 66vh, 720px);
+  width: auto;
+  max-width: 100%;
   align-self: center;
 }
 
-.phone__notch {
-  width: 100px;
-  height: 24px;
-  background: var(--black);
-  border-radius: 0 0 16px 16px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-  top: -1px;
-}
-
-.phone__screen {
-  background: var(--milk);
-  border-radius: 24px;
-  overflow: hidden;
-  min-height: 480px;
-}
-
-.phone__profile {
-  padding: 20px 16px 12px;
-  text-align: center;
-}
-
-.phone__avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 8px;
-  border: 2px solid var(--milk);
-}
-
-.phone__nick {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  margin-bottom: 4px;
-}
-
-.phone__bio {
-  font-size: 11px;
-  color: var(--smoke);
-}
-
-.phone__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  padding: 0 2px 2px;
-}
-
-.phone__grid img {
+.insta-shot img {
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* ============================================
@@ -1133,8 +1081,10 @@ a {
   
 
   
-  .phone {
-    width: 240px;
+  .insta-shot {
+    width: min(72vw, 340px);
+    height: auto;
+    margin: 2rem auto 0;
   }
 
   .hero__tagline {

@@ -280,30 +280,15 @@ export default function App() {
           </div>
 
           <div className="reveal">
-            <div className="phone">
-              <div className="phone__notch"></div>
-              <div className="phone__screen">
-                <div className="phone__profile">
-                  <img
-                    className="phone__avatar"
-                    src="https://picsum.photos/seed/avatar/100/100"
-                    alt="Аватар Екатерины Подставкиной"
-                  />
-                  <div className="phone__nick">@ekaterina.podstavkina</div>
-                  <div className="phone__bio">Editorial & fashion-фотограф</div>
-                </div>
-                <div className="phone__grid">
-                  <img src="https://picsum.photos/seed/ig1/200/200" alt="Пост 1" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig2/200/200" alt="Пост 2" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig3/200/200" alt="Пост 3" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig4/200/200" alt="Пост 4" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig5/200/200" alt="Пост 5" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig6/200/200" alt="Пост 6" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig7/200/200" alt="Пост 7" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig8/200/200" alt="Пост 8" loading="lazy" />
-                  <img src="https://picsum.photos/seed/ig9/200/200" alt="Пост 9" loading="lazy" />
-                </div>
-              </div>
+            <div className="insta-shot">
+              <img
+                src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
+                alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
+                width="1284"
+                height="2646"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
