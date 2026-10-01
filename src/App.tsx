@@ -295,15 +295,11 @@ export default function App() {
           </div>
 
           <div className="reveal">
-            <div className="manifesto__overlay">
-              <span className="manifesto__overlay-line"></span>
-              <span className="manifesto__overlay-text">О СЕБЕ</span>
-            </div>
             <p className="manifesto__text">
-              Я Екатерина — <em>editorial и love story</em>-фотограф из Барнаула.
+              Я Екатерина — editorial и love story-фотограф из Барнаула.
               Мои работы живут на стыке <em>живых эмоций</em> и{' '}
               <em>строгой композиции</em>.
-              Каждая съёмка создана так, чтобы вы <em>забыли о присутствии камеры</em>.
+              Каждая съёмка создана так, чтобы вы забыли о присутствии камеры.
             </p>
             <a href="#services" className="btn arrow-link">
               КАК Я РАБОТАЮ <ArrowIcon />
