@@ -286,7 +286,7 @@ export default function App() {
           <div className="reveal">
             <h2 className="social__headline">ЛЕНТА</h2>
             <p className="social__text">
-              <em>Заходите за</em> <strong>ЗАКАДРЬЕМ</strong>,{' '}
+              <em>Заходите за</em> <strong>ЭСТЕТИКОЙ</strong>,{' '}
               <em>живыми моментами</em> и <strong>ВДОХНОВЛЕНИЕМ.</strong>
             </p>
             <p className="social__desc">
