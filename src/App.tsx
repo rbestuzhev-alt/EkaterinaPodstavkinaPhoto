@@ -242,7 +242,7 @@ export default function App() {
       </section>
 
       {/* ========== УСЛУГИ ========== */}
-      <section className="services" id="services">
+      <section className="services curved-top curved-top--pine" id="services">
         <div className="services__inner">
           <h2 className="services__headline mixed-headline reveal">
             <em>опыт</em> — ЭТО ВСЁ.
@@ -329,7 +329,7 @@ export default function App() {
       </section>
 
       {/* ========== РАССЫЛКА ========== */}
-      <section className="newsletter" id="contact">
+      <section className="newsletter curved-top curved-top--black" id="contact">
         <div className="newsletter__bg">
           <img
             src="https://picsum.photos/seed/window/1920/1080?grayscale"
