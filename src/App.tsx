@@ -329,7 +329,7 @@ export default function App() {
             <em>сделаю вашу ленту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong>
           </h2>
           <p className="newsletter__desc">
-            Все мои работы в Instagram
+            Все мои работы
           </p>
           <a
             href="https://www.instagram.com/eppho.to/?hl=ru"
