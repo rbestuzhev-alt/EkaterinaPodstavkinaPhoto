@@ -183,6 +183,8 @@ export default function App() {
 
     /* ---------- LIGHTBOX - УНИВЕРСАЛЬНОЕ ДЕЛЕГИРОВАНИЕ ---------- */
     
+    let savedScrollY = 0;
+    
     // Обработка открытия лайтбокса
     const handleLightboxOpen = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -208,21 +210,21 @@ export default function App() {
           // Сначала убираем класс (если был)
           lightbox.classList.remove('active');
           
+          // Сохраняем текущую позицию скролла
+          savedScrollY = window.scrollY;
+          
+          // Фиксируем body на месте (вместо overflow: hidden)
+          document.body.style.position = 'fixed';
+          document.body.style.top = `-${savedScrollY}px`;
+          document.body.style.width = '100%';
+          
           // Меняем src
           lightboxImg.src = img.src;
           lightboxImg.alt = img.alt || 'Избранная работа';
           
-          // === КОМПЕНСАЦИЯ СКРОЛЛБАРА ===
-          const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-          if (scrollbarWidth > 0) {
-            document.body.style.paddingRight = scrollbarWidth + 'px';
-          }
-          // =================================
-          
           // Ждём один кадр, чтобы браузер применил начальное состояние
           setTimeout(() => {
             lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
             console.log('✅ Лайтбокс открыт');
             
             // ДИАГНОСТИКА
@@ -246,14 +248,18 @@ export default function App() {
       
       if (closeBtn || clickedOnBackground) {
         lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = ''; // возвращаем padding
         console.log('✅ Лайтбокс закрыт');
         
         // Очищаем src после анимации
         setTimeout(() => {
           const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
           if (lightboxImg) lightboxImg.src = '';
+          
+          // Возвращаем скролл на место
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          window.scrollTo(0, savedScrollY);
         }, 500);
       }
     };
@@ -264,13 +270,17 @@ export default function App() {
         const lightbox = document.getElementById('portfolio-lightbox');
         if (lightbox && lightbox.classList.contains('active')) {
           lightbox.classList.remove('active');
-          document.body.style.overflow = '';
-          document.body.style.paddingRight = ''; // возвращаем padding
           console.log('✅ Лайтбокс закрыт по Escape');
           
           setTimeout(() => {
             const lightboxImg = lightbox.querySelector('.lightbox-img') as HTMLImageElement;
             if (lightboxImg) lightboxImg.src = '';
+            
+            // Возвращаем скролл на место
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, savedScrollY);
           }, 500);
         }
       }

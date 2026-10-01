@@ -1315,6 +1315,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+  overscroll-behavior: contain;
 }
 
 #portfolio-lightbox.active {
