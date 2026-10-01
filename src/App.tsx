@@ -181,6 +181,59 @@ export default function App() {
       updateCollageParallax(); // Начальное положение
     }
 
+    /* ---------- LIGHTBOX ---------- */
+    const lightbox = document.getElementById('portfolio-lightbox') as HTMLElement;
+    const lightboxImg = lightbox?.querySelector('.lightbox-img') as HTMLImageElement;
+    const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLButtonElement;
+
+    const openLightbox = (src: string) => {
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    const closeLightbox = () => {
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          if (lightboxImg) lightboxImg.src = '';
+        }, 400);
+      }
+    };
+
+    // Обработчики кликов на изображения портфолио
+    const portfolioImages = document.querySelectorAll('.portfolio__card-img');
+    portfolioImages.forEach((img) => {
+      img.addEventListener('click', () => {
+        const src = (img as HTMLImageElement).src;
+        openLightbox(src);
+      });
+    });
+
+    // Закрытие lightbox
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
+
+    // Закрытие по Escape
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && lightbox?.classList.contains('active')) {
+        closeLightbox();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+
     return () => {
       observer.disconnect();
       lineObserver.disconnect();
@@ -191,6 +244,7 @@ export default function App() {
       if (collageParallaxRafId) {
         cancelAnimationFrame(collageParallaxRafId);
       }
+      document.removeEventListener('keydown', handleEscape);
     };
   }, []);
 
@@ -525,6 +579,12 @@ export default function App() {
           <span className="footer__copy">© {currentYear} eppho.to. Все права защищены.</span>
         </div>
       </footer>
+
+      {/* ========== LIGHTBOX ========== */}
+      <div id="portfolio-lightbox" className="lightbox">
+        <button className="lightbox-close" aria-label="Закрыть">&times;</button>
+        <img src="" alt="Увеличенное изображение" className="lightbox-img" />
+      </div>
     </>
   );
 }
