@@ -341,8 +341,7 @@ export default function App() {
             <em>сделаю вашу ленту более</em> <strong>ВДОХНОВЛЯЮЩЕЙ</strong>
           </h2>
           <p className="newsletter__desc">
-            Ежемесячное письмо с историями из закулисья, ранним доступом к новым работам
-            и редкими размышлениями о золотом часе. Никакого спама — только вдохновение.
+            Все мои работы в Instagram
           </p>
           <form className="newsletter__form" ref={formRef} onSubmit={handleFormSubmit}>
             <input
