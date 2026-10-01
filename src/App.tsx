@@ -146,14 +146,14 @@ export default function App() {
           <div className="manifesto__collage reveal">
             <img
               className="manifesto__collage-img1"
-              src="https://picsum.photos/seed/manifesto1/600/800"
-              alt="Цветной editorial-портрет"
+              src="https://i.postimg.cc/QxBjvLR9/Ph-eppho-to.jpg"
+              alt="Кадр со съёмки Екатерины Подставкиной"
               loading="lazy"
             />
             <img
               className="manifesto__collage-img2"
-              src="https://picsum.photos/seed/manifesto2/400/530?grayscale"
-              alt="Чёрно-белый портрет"
+              src="https://i.postimg.cc/Fzzh9w1s/651182840-17860030887613066-5146487858387492302-n.jpg"
+              alt="Ч/б кадр со съёмки"
               loading="lazy"
             />
           </div>
