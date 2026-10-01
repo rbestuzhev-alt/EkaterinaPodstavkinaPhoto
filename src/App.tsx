@@ -16,21 +16,10 @@ const ArrowIcon = () => (
    ПРЕЛОАДЕР "ПРОЯВКА"
    ============================================ */
 const Preloader = () => {
-  const text = "35MM — ISO 400 — FR 01A";
-  const letters = text.split('');
-
   return (
     <div className="preloader" id="preloader">
       <div className="preloader__text">
-        {letters.map((letter, i) => (
-          <span
-            key={i}
-            className="preloader__letter"
-            style={{ animationDelay: `${i * 40}ms` }}
-          >
-            {letter === ' ' ? '\u00A0' : letter}
-          </span>
-        ))}
+        35MM — ISO 400 — FR 01A
       </div>
     </div>
   );
@@ -55,16 +44,18 @@ export default function App() {
     if (preloader) {
       if (prefersReducedMotion || sessionStorage.getItem('preloader-shown')) {
         preloader.style.display = 'none';
+        document.body.classList.add('loaded');
       } else {
         document.body.style.overflow = 'hidden';
         const hidePreloader = () => {
           preloader.classList.add('preloader--hidden');
           document.body.style.overflow = '';
+          document.body.classList.add('loaded');
           sessionStorage.setItem('preloader-shown', '1');
-          setTimeout(() => { preloader.style.display = 'none'; }, 900);
+          setTimeout(() => { preloader.style.display = 'none'; }, 700);
         };
-        window.addEventListener('load', () => setTimeout(hidePreloader, 800));
-        setTimeout(hidePreloader, 2500);
+        window.addEventListener('load', () => setTimeout(hidePreloader, 700));
+        setTimeout(hidePreloader, 1500);
       }
     }
 
