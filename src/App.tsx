@@ -361,7 +361,7 @@ export default function App() {
             </a>
           </div>
 
-          <span className="footer__copy">© {currentYear} Екатерина Подставкина. Все права защищены.</span>
+          <span className="footer__copy">© {currentYear} eppho.to. Все права защищены.</span>
         </div>
       </footer>
     </>
