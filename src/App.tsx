@@ -268,19 +268,14 @@ export default function App() {
 
       {/* ========== СОЦСЕТИ ========== */}
       <section className="social curved-top curved-top--milk" id="journal">
-        <span className="watermark watermark--light" style={{ top: '5%', left: '-5%' }}>ЛЕНТА</span>
+        <span className="watermark watermark--light" style={{ top: '5%', left: '-5%', fontSize: 'clamp(60px, 15vw, 240px)' }}>INSTAGRAM</span>
 
         <div className="social__inner">
           <div className="reveal">
-            <h2 className="social__headline">ЛЕНТА</h2>
+            <h2 className="social__headline">INSTAGRAM</h2>
             <p className="social__text">
               <em>Заходите за</em> <strong>ЭСТЕТИКОЙ</strong>,{' '}
               <em>живыми моментами</em> и <strong>ВДОХНОВЛЕНИЕМ.</strong>
-            </p>
-            <p className="social__desc">
-              Подписывайтесь — здесь закулисье каждой съёмки, советы по стилю,
-              секреты локаций и редкие моменты чистого творчества.
-              Именно здесь работа живёт между галереями.
             </p>
           </div>
 
