@@ -473,16 +473,17 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid transparent;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  background-color: transparent;
+  border: 1px solid rgba(239, 235, 228, 0.35);
+  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero__join:hover {
-  opacity: 1;
-  color: var(--red);
-  border-color: rgba(239, 235, 228, 0.35);
+  background-color: var(--red);
+  color: var(--milk);
+  border-color: rgba(239, 235, 228, 0.55);
 }
 
 .hero__name {
