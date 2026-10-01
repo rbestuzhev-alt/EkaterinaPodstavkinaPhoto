@@ -173,7 +173,8 @@ export default function App() {
           <div className="reveal">
             <p className="manifesto__text">
               Я Екатерина — editorial и love story-фотограф из Барнаула.
-              Мои работы живут на стыке живых эмоций и строгой композиции.
+              Мои работы живут на стыке живых эмоций и{' '}
+              <em style={{ fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>строгой композиции</em>.
               Каждая съёмка создана так, чтобы вы забыли о присутствии камеры.
             </p>
             <a href="#services" className="btn arrow-link">
