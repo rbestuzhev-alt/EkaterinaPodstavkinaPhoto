@@ -723,10 +723,13 @@ a {
 .insta-shot {
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
-  height: clamp(480px, 66vh, 720px);
+  height: clamp(560px, 78vh, 860px);
+  max-height: 86vh;
   width: auto;
   max-width: 100%;
   align-self: center;
+  justify-self: end;
+  margin-right: clamp(16px, 4vw, 56px);
 }
 
 .insta-shot img {
