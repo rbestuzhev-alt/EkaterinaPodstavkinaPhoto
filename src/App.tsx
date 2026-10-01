@@ -341,7 +341,7 @@ export default function App() {
 
         <div className="footer__cta" id="book">
           <h2 className="footer__cta-title">ГОТОВЫ ЗАПИСАТЬСЯ?</h2>
-          <a href="mailto:hello@ekaterinapodstavkina.ru" className="btn btn--outline arrow-link">
+          <a href="https://t.me/pro100katerinkaa" target="_blank" rel="noopener noreferrer" className="btn btn--outline arrow-link">
             СВЯЗАТЬСЯ <ArrowIcon />
           </a>
         </div>
