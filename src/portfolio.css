@@ -1,15 +1,17 @@
 /* ============================================
-   ANNA VOLKOVA — PORTFOLIO
+   ЕКАТЕРИНА ПОДСТАВКИНА — PORTFOLIO
    Editorial / Fashion Magazine Aesthetic
+   Фотолаборатория: чёрный + молочный + киноварь
    ============================================ */
 
 /* ---------- CSS VARIABLES ---------- */
 :root {
-  --black: #070605;
-  --cream: #EFE8DE;
-  --white: #F8F6F3;
-  --btn: #E5DCCB;
-  --muted: #B9B2A8;
+  --black: #0B0A08;
+  --milk: #EFEBE4;
+  --red: #C0291A;
+  --smoke: #8F8B85;
+  --line-on-black: rgba(239,235,228,.15);
+  --line-on-milk: rgba(11,10,8,.12);
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -29,8 +31,20 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: var(--black);
-  background: var(--cream);
+  background: var(--milk);
   overflow-x: hidden;
+}
+
+/* Плёночное зерно */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
 }
 
 img {
@@ -46,8 +60,14 @@ a {
 
 /* ---------- SELECTION ---------- */
 ::selection {
-  background: var(--cream);
-  color: var(--black);
+  background: var(--red);
+  color: var(--milk);
+}
+
+/* ---------- FOCUS VISIBLE ---------- */
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
 }
 
 /* ---------- TYPOGRAPHY HELPERS ---------- */
@@ -107,8 +127,8 @@ a {
 .btn {
   display: inline-flex;
   align-items: center;
-  background: var(--btn);
-  color: var(--black);
+  background: var(--black);
+  color: var(--milk);
   padding: 16px 32px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -117,21 +137,24 @@ a {
   font-size: 12px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-  background: var(--cream);
+  background: var(--red);
+  color: var(--milk);
 }
 
 .btn--outline {
   background: transparent;
-  border: 1px solid var(--white);
-  color: var(--white);
+  border: 1px solid var(--milk);
+  color: var(--milk);
 }
 
 .btn--outline:hover {
-  background: rgba(255,255,255,0.08);
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--milk);
 }
 
 /* ---------- WATERMARK WORD ---------- */
@@ -146,11 +169,11 @@ a {
 }
 
 .watermark--dark {
-  color: rgba(255, 255, 255, 0.04);
+  color: rgba(239, 235, 228, 0.05);
 }
 
 .watermark--light {
-  color: rgba(0, 0, 0, 0.04);
+  color: rgba(11, 10, 8, 0.06);
 }
 
 /* ---------- CURVED SECTION TRANSITION ---------- */
@@ -169,8 +192,8 @@ a {
   z-index: 1;
 }
 
-.curved-top--cream::before {
-  background: var(--cream);
+.curved-top--milk::before {
+  background: var(--milk);
 }
 
 .curved-top--black::before {
@@ -270,7 +293,7 @@ a {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(7, 6, 5, 0.55);
+  background: rgba(11, 10, 8, 0.55);
   z-index: 1;
 }
 
@@ -293,13 +316,14 @@ a {
 }
 
 .hero__socials a {
-  color: var(--white);
+  color: var(--milk);
   opacity: 0.8;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color 0.3s;
 }
 
 .hero__socials a:hover {
   opacity: 1;
+  color: var(--red);
 }
 
 .hero__socials svg {
@@ -309,7 +333,7 @@ a {
 }
 
 .hero__join {
-  color: var(--white);
+  color: var(--milk);
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -318,18 +342,19 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color 0.3s;
 }
 
 .hero__join:hover {
-  opacity: 0.8;
+  opacity: 1;
+  color: var(--red);
 }
 
 .hero__name {
   position: relative;
   z-index: 5;
   text-align: center;
-  color: var(--white);
+  color: var(--milk);
   font-family: 'Italiana', serif;
   font-size: clamp(64px, 14vw, 200px);
   line-height: 0.95;
@@ -356,7 +381,14 @@ a {
   position: relative;
 }
 
-.hero__nav nav a {
+.hero__nav a {
+  color: var(--milk);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  transition: color 0.3s;
   position: relative;
 }
 
@@ -367,7 +399,7 @@ a {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--white);
+  background: var(--red);
   transition: width 0.3s ease;
 }
 
@@ -375,18 +407,8 @@ a {
   width: 100%;
 }
 
-.hero__nav a {
-  color: var(--white);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 12px;
-  transition: opacity 0.3s;
-}
-
 .hero__nav a:hover {
-  opacity: 0.7;
+  color: var(--red);
 }
 
 .hero__tagline {
@@ -396,7 +418,7 @@ a {
   transform: translateX(-50%);
   z-index: 6;
   text-align: center;
-  color: var(--white);
+  color: var(--milk);
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 16px;
@@ -415,7 +437,7 @@ a {
 .manifesto {
   position: relative;
   background: var(--black);
-  color: var(--white);
+  color: var(--milk);
   padding: 160px 40px 120px;
   overflow: hidden;
 }
@@ -433,7 +455,7 @@ a {
   grid-column: 1 / -1;
   font-size: clamp(40px, 7vw, 90px);
   margin-bottom: 40px;
-  color: var(--white);
+  color: var(--milk);
 }
 
 .manifesto__collage {
@@ -465,7 +487,7 @@ a {
 .manifesto__text {
   font-size: 16px;
   line-height: 1.8;
-  color: var(--muted);
+  color: var(--smoke);
   margin-bottom: 40px;
 }
 
@@ -474,7 +496,7 @@ a {
    ============================================ */
 .portfolio {
   position: relative;
-  background: var(--cream);
+  background: var(--milk);
   padding: 160px 40px 120px;
   overflow: hidden;
 }
@@ -513,7 +535,7 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(7,6,5,0.5) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(11,10,8,0.5) 0%, transparent 50%);
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 1;
@@ -544,7 +566,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 11px;
-  color: var(--white);
+  color: var(--milk);
   z-index: 2;
 }
 
@@ -557,19 +579,20 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 11px;
-  color: var(--white);
+  color: var(--milk);
   display: inline-flex;
   align-items: center;
   gap: 6px;
   z-index: 2;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
 }
 
 .portfolio__card:hover .portfolio__card-link {
   opacity: 1;
   transform: translateY(0);
+  color: var(--red);
 }
 
 /* ============================================
@@ -578,7 +601,7 @@ a {
 .services {
   position: relative;
   background: var(--black);
-  color: var(--white);
+  color: var(--milk);
   padding: 140px 40px 120px;
   overflow: hidden;
 }
@@ -593,7 +616,7 @@ a {
 .services__headline {
   font-size: clamp(36px, 6vw, 80px);
   margin-bottom: 80px;
-  color: var(--white);
+  color: var(--milk);
 }
 
 .services__steps {
@@ -612,7 +635,7 @@ a {
 .services__step-num {
   font-family: 'Italiana', serif;
   font-size: clamp(48px, 5vw, 72px);
-  color: var(--muted);
+  color: var(--smoke);
   line-height: 1;
   flex-shrink: 0;
 }
@@ -624,13 +647,13 @@ a {
   letter-spacing: 0.12em;
   font-size: 14px;
   margin-bottom: 12px;
-  color: var(--white);
+  color: var(--milk);
 }
 
 .services__step-content p {
   font-size: 15px;
   line-height: 1.7;
-  color: var(--muted);
+  color: var(--smoke);
 }
 
 /* ============================================
@@ -638,7 +661,7 @@ a {
    ============================================ */
 .social {
   position: relative;
-  background: var(--cream);
+  background: var(--milk);
   padding: 140px 40px 120px;
   overflow: hidden;
 }
@@ -686,7 +709,7 @@ a {
 
 .social__desc {
   font-size: 15px;
-  color: var(--muted);
+  color: rgba(11,10,8,.55);
   line-height: 1.7;
   margin-top: 24px;
 }
@@ -714,7 +737,7 @@ a {
 }
 
 .phone__screen {
-  background: var(--white);
+  background: var(--milk);
   border-radius: 24px;
   overflow: hidden;
   min-height: 480px;
@@ -731,7 +754,7 @@ a {
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 8px;
-  border: 2px solid var(--cream);
+  border: 2px solid var(--milk);
 }
 
 .phone__nick {
@@ -743,7 +766,7 @@ a {
 
 .phone__bio {
   font-size: 11px;
-  color: var(--muted);
+  color: var(--smoke);
 }
 
 .phone__grid {
@@ -788,7 +811,7 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(7, 6, 5, 0.75);
+  background: rgba(11, 10, 8, 0.75);
 }
 
 .newsletter__inner {
@@ -796,7 +819,7 @@ a {
   z-index: 2;
   max-width: 640px;
   text-align: center;
-  color: var(--white);
+  color: var(--milk);
 }
 
 .newsletter__headline {
@@ -821,7 +844,7 @@ a {
 
 .newsletter__desc {
   font-size: 16px;
-  color: var(--muted);
+  color: var(--smoke);
   margin-bottom: 40px;
   line-height: 1.7;
 }
@@ -837,8 +860,8 @@ a {
 .newsletter__input {
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--white);
-  color: var(--white);
+  border-bottom: 1px solid var(--milk);
+  color: var(--milk);
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   padding: 12px 4px;
@@ -848,15 +871,15 @@ a {
 }
 
 .newsletter__input::placeholder {
-  color: var(--muted);
+  color: var(--smoke);
 }
 
 .newsletter__input:focus {
-  border-bottom-color: var(--cream);
+  border-bottom-color: var(--red);
 }
 
 .newsletter__success {
-  color: var(--cream);
+  color: var(--red);
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 18px;
@@ -875,7 +898,7 @@ a {
 .footer {
   position: relative;
   background: var(--black);
-  color: var(--white);
+  color: var(--milk);
   overflow: hidden;
 }
 
@@ -884,7 +907,7 @@ a {
   overflow: hidden;
   white-space: nowrap;
   padding: 40px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--line-on-black);
 }
 
 .marquee__track {
@@ -895,9 +918,15 @@ a {
 .marquee__text {
   font-family: 'Italiana', serif;
   font-size: clamp(48px, 8vw, 120px);
-  color: rgba(255,255,255,0.12);
+  color: var(--milk);
   padding-right: 60px;
   flex-shrink: 0;
+  opacity: 0.12;
+}
+
+.marquee__text:nth-child(even) {
+  color: var(--red);
+  opacity: 0.15;
 }
 
 @keyframes marqueeScroll {
@@ -920,7 +949,7 @@ a {
 }
 
 .footer__bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--line-on-black);
   padding: 32px 40px;
   display: flex;
   justify-content: space-between;
@@ -940,12 +969,12 @@ a {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--muted);
+  color: var(--smoke);
   transition: color 0.3s;
 }
 
 .footer__bottom-nav a:hover {
-  color: var(--white);
+  color: var(--red);
 }
 
 .footer__bottom-social {
@@ -954,12 +983,12 @@ a {
 }
 
 .footer__bottom-social a {
-  color: var(--muted);
+  color: var(--smoke);
   transition: color 0.3s;
 }
 
 .footer__bottom-social a:hover {
-  color: var(--white);
+  color: var(--red);
 }
 
 .footer__bottom-social svg {
@@ -970,7 +999,7 @@ a {
 
 .footer__copy {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--smoke);
 }
 
 /* ============================================
@@ -980,7 +1009,7 @@ a {
   display: none;
   background: none;
   border: none;
-  color: var(--white);
+  color: var(--milk);
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 18px;
@@ -1012,8 +1041,8 @@ a {
 .mobile-overlay a {
   font-family: 'Italiana', serif;
   font-size: clamp(32px, 7vw, 56px);
-  color: var(--white);
-  transition: opacity 0.3s, transform 0.3s;
+  color: var(--milk);
+  transition: opacity 0.3s, transform 0.3s, color 0.3s;
   position: relative;
 }
 
@@ -1024,16 +1053,16 @@ a {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--white);
+  background: var(--red);
   transition: width 0.4s ease;
+}
+
+.mobile-overlay a:hover {
+  color: var(--red);
 }
 
 .mobile-overlay a:hover::after {
   width: 100%;
-}
-
-.mobile-overlay a:hover {
-  opacity: 0.7;
 }
 
 .mobile-overlay__close {
@@ -1042,11 +1071,16 @@ a {
   right: 40px;
   background: none;
   border: none;
-  color: var(--white);
+  color: var(--milk);
   font-size: 32px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
+  transition: color 0.3s;
+}
+
+.mobile-overlay__close:hover {
+  color: var(--red);
 }
 
 /* ============================================
@@ -1090,7 +1124,7 @@ a {
     white-space: normal;
     text-align: center;
     font-size: 14px;
-    padding: 10px 20px;
+    padding: 0 20px;
   }
   
   .footer__bottom {

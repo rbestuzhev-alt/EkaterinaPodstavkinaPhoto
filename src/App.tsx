@@ -187,7 +187,7 @@ export default function App() {
       </section>
 
       {/* ========== ПОРТФОЛИО ========== */}
-      <section className="portfolio curved-top curved-top--cream" id="portfolio">
+      <section className="portfolio curved-top curved-top--milk" id="portfolio">
         <span className="watermark watermark--light" style={{ top: '10%', right: '-5%' }}>РАБОТЫ</span>
 
         <div className="portfolio__inner">
@@ -281,7 +281,7 @@ export default function App() {
       </section>
 
       {/* ========== СОЦСЕТИ ========== */}
-      <section className="social curved-top curved-top--cream" id="journal">
+      <section className="social curved-top curved-top--milk" id="journal">
         <span className="watermark watermark--light" style={{ top: '5%', left: '-5%' }}>ЛЕНТА</span>
 
         <div className="social__inner">
