@@ -821,13 +821,18 @@ a {
   align-items: start;
   position: relative;
   z-index: 2;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .social__inner > div:first-child {
   margin-top: 150px;
   position: relative;
   z-index: 2;
+  max-width: 50%;
+  min-width: 0;
+  flex-shrink: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .social__headline {
