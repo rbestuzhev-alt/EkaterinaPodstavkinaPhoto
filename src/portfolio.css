@@ -821,7 +821,8 @@ a {
   align-items: start;
   position: relative;
   z-index: 2;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .social__inner > div:first-child {
