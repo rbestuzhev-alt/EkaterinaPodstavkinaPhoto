@@ -1091,86 +1091,7 @@ a {
   color: var(--smoke);
 }
 
-/* ============================================
-   MOBILE MENU
-   ============================================ */
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--milk);
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 18px;
-  cursor: pointer;
-  align-items: center;
-  gap: 6px;
-}
 
-.mobile-overlay {
-  position: fixed;
-  inset: 0;
-  background: var(--black);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.mobile-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.mobile-overlay a {
-  font-family: 'Italiana', serif;
-  font-size: clamp(32px, 7vw, 56px);
-  color: var(--milk);
-  transition: opacity 0.3s, transform 0.3s, color 0.3s;
-  position: relative;
-}
-
-.mobile-overlay a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--red);
-  transition: width 0.4s ease;
-}
-
-.mobile-overlay a:hover {
-  color: var(--red);
-}
-
-.mobile-overlay a:hover::after {
-  width: 100%;
-}
-
-.mobile-overlay__close {
-  position: absolute;
-  top: 32px;
-  right: 40px;
-  background: none;
-  border: none;
-  color: var(--milk);
-  font-size: 32px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  transition: color 0.3s;
-}
-
-.mobile-overlay__close:hover {
-  color: var(--red);
-}
 
 /* ============================================
    RESPONSIVE
@@ -1213,9 +1134,7 @@ a {
     display: none;
   }
   
-  .mobile-menu-btn {
-    display: flex;
-  }
+
   
   .manifesto__inner {
     grid-template-columns: 1fr;

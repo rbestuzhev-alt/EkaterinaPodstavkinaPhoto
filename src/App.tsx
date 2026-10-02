@@ -34,7 +34,7 @@ const Preloader = () => {
    ============================================ */
 
 export default function App() {
-  const overlayRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -210,13 +210,7 @@ export default function App() {
     };
   }, []);
 
-  const openMenu = () => {
-    overlayRef.current?.classList.add('active');
-  };
 
-  const closeMenu = () => {
-    overlayRef.current?.classList.remove('active');
-  };
 
   const currentYear = new Date().getFullYear();
 
@@ -225,15 +219,7 @@ export default function App() {
       {/* ========== ПРЕЛОАДЕР ========== */}
       <Preloader />
 
-      {/* ========== МОБИЛЬНОЕ МЕНЮ ========== */}
-      <div className="mobile-overlay" ref={overlayRef}>
-        <button className="mobile-overlay__close" onClick={closeMenu} aria-label="Закрыть меню">×</button>
-        <a href="#about" onClick={closeMenu}>О себе</a>
-        <a href="#portfolio" onClick={closeMenu}>Портфолио</a>
-        <a href="#services" onClick={closeMenu}>Услуги</a>
-        <a href="#journal" onClick={closeMenu}>Журнал</a>
-        <a href="#contact" onClick={closeMenu}>Контакты</a>
-      </div>
+
 
       {/* ========== HERO СЕКЦИЯ ========== */}
       <header className="hero" id="hero">
@@ -268,9 +254,7 @@ export default function App() {
           <a href="#contact" className="hero__join arrow-link">
             ПОДПИСАТЬСЯ <ArrowIcon />
           </a>
-          <button className="mobile-menu-btn" onClick={openMenu}>
-            Меню <ArrowIcon />
-          </button>
+
         </div>
 
         <h1 className="hero__name line-mask">
