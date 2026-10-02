@@ -604,7 +604,6 @@ a {
   object-fit: cover;
   position: relative;
   z-index: 1;
-  will-change: transform;
 }
 
 .manifesto__collage-img2 {
@@ -617,7 +616,6 @@ a {
   z-index: 2;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   filter: grayscale(100%);
-  will-change: transform;
 }
 
 .manifesto__text {
@@ -879,7 +877,7 @@ a {
   z-index: 3;
 }
 
-/* Instagram shot - размер и параллакс */
+/* Instagram shot - размер */
 .insta-shot {
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
@@ -893,32 +891,11 @@ a {
   height: 100%;
   object-fit: cover;
   display: block;
-  will-change: transform;
 }
 
 
 
-@media (max-width: 899px) {
-  .insta-shot img {
-    transform: none !important;
-  }
-  
-  .manifesto__collage-img1,
-  .manifesto__collage-img2 {
-    transform: none !important;
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .insta-shot img {
-    transform: none !important;
-  }
-  
-  .manifesto__collage-img1,
-  .manifesto__collage-img2 {
-    transform: none !important;
-  }
-}
 
 /* ============================================
    NEWSLETTER SECTION

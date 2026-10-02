@@ -119,67 +119,7 @@ export default function App() {
 
 
 
-    /* ---------- ПАРАЛЛАКС ТЕЛЕФОНА INSTAGRAM ---------- */
-    let parallaxRafId: number | null = null;
-    const instaShot = document.querySelector('.insta-shot') as HTMLElement;
-    const instaSection = document.querySelector('.social') as HTMLElement;
 
-    if (!prefersReducedMotion && instaShot && instaSection && window.innerWidth >= 900) {
-      const updateParallax = () => {
-        const sectionRect = instaSection.getBoundingClientRect();
-        const viewportCenter = window.innerHeight / 2;
-        const sectionCenter = sectionRect.top + sectionRect.height / 2;
-        const offset = sectionCenter - viewportCenter;
-        const parallaxValue = offset * 0.05; // Коэффициент 0.05
-        
-        instaShot.style.transform = `translateY(${parallaxValue}px)`;
-      };
-
-      const handleScroll = () => {
-        if (parallaxRafId) return;
-        parallaxRafId = requestAnimationFrame(() => {
-          updateParallax();
-          parallaxRafId = null;
-        });
-      };
-
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      updateParallax(); // Начальное положение
-    }
-
-    /* ---------- ПАРАЛЛАКС ФОТОГРАФИЙ КОЛЛАЖА ---------- */
-    let collageParallaxRafId: number | null = null;
-    const collageImg1 = document.querySelector('.manifesto__collage-img1') as HTMLElement;
-    const collageImg2 = document.querySelector('.manifesto__collage-img2') as HTMLElement;
-    const manifestoSection = document.querySelector('.manifesto') as HTMLElement;
-
-    if (!prefersReducedMotion && collageImg1 && collageImg2 && manifestoSection && window.innerWidth >= 900) {
-      const updateCollageParallax = () => {
-        const sectionRect = manifestoSection.getBoundingClientRect();
-        const viewportCenter = window.innerHeight / 2;
-        const sectionCenter = sectionRect.top + sectionRect.height / 2;
-        const offset = sectionCenter - viewportCenter;
-        
-        // Большое фото: коэффициент 0.05 (±20-30px)
-        const parallaxValue1 = offset * 0.05;
-        collageImg1.style.transform = `translateY(${parallaxValue1}px)`;
-        
-        // Малое фото: коэффициент 0.08 (±35-45px)
-        const parallaxValue2 = offset * 0.08;
-        collageImg2.style.transform = `translateY(${parallaxValue2}px)`;
-      };
-
-      const handleCollageScroll = () => {
-        if (collageParallaxRafId) return;
-        collageParallaxRafId = requestAnimationFrame(() => {
-          updateCollageParallax();
-          collageParallaxRafId = null;
-        });
-      };
-
-      window.addEventListener('scroll', handleCollageScroll, { passive: true });
-      updateCollageParallax(); // Начальное положение
-    }
 
     /* ---------- LIGHTBOX - УНИВЕРСАЛЬНОЕ ДЕЛЕГИРОВАНИЕ ---------- */
     
@@ -264,12 +204,6 @@ export default function App() {
       observer.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
-      if (parallaxRafId) {
-        cancelAnimationFrame(parallaxRafId);
-      }
-      if (collageParallaxRafId) {
-        cancelAnimationFrame(collageParallaxRafId);
-      }
       document.removeEventListener('click', handleLightboxOpen);
       document.removeEventListener('click', handleLightboxClose);
       document.removeEventListener('keydown', handleEscape);
