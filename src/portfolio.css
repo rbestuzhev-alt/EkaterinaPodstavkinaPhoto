@@ -877,6 +877,13 @@ a {
   z-index: 3;
 }
 
+/* Десктопы и планшеты (>1024px): увеличение на 15% + сдвиг вниз на 20% */
+@media (min-width: 1025px) {
+  .insta-shot-wrapper {
+    transform: scale(1.15) translateY(-30%);
+  }
+}
+
 /* Instagram shot - размер */
 .insta-shot {
   aspect-ratio: 1284 / 2646;
@@ -1201,7 +1208,7 @@ a {
   
   .insta-shot-wrapper {
     position: static;
-    transform: none;
+    transform: scale(1.15) translateY(-50%);
     width: min(72vw, 340px);
     margin: 2rem auto 0;
   }
