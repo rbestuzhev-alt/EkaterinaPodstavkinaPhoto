@@ -121,10 +121,10 @@ export default function App() {
 
     /* ---------- ПАРАЛЛАКС ТЕЛЕФОНА INSTAGRAM ---------- */
     let parallaxRafId: number | null = null;
-    const instaShotImg = document.querySelector('.insta-shot img') as HTMLElement;
+    const instaShot = document.querySelector('.insta-shot') as HTMLElement;
     const instaSection = document.querySelector('.social') as HTMLElement;
 
-    if (!prefersReducedMotion && instaShotImg && instaSection && window.innerWidth >= 900) {
+    if (!prefersReducedMotion && instaShot && instaSection && window.innerWidth >= 900) {
       const updateParallax = () => {
         const sectionRect = instaSection.getBoundingClientRect();
         const viewportCenter = window.innerHeight / 2;
@@ -132,7 +132,7 @@ export default function App() {
         const offset = sectionCenter - viewportCenter;
         const parallaxValue = offset * 0.05; // Коэффициент 0.05
         
-        instaShotImg.style.transform = `translateY(${parallaxValue}px)`;
+        instaShot.style.transform = `translateY(${parallaxValue}px)`;
       };
 
       const handleScroll = () => {
@@ -509,15 +509,17 @@ export default function App() {
           </div>
 
           <div className="reveal">
-            <div className="insta-shot">
-              <img
-                src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
-                alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
-                width="1284"
-                height="2646"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="insta-shot-wrapper">
+              <div className="insta-shot">
+                <img
+                  src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
+                  alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
+                  width="1284"
+                  height="2646"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>
