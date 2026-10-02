@@ -836,6 +836,14 @@ a {
   overflow-wrap: break-word;
 }
 
+/* Десктопы и планшеты (>1024px) - увеличенная ширина текста */
+@media (min-width: 1025px) {
+  .social__inner > div:first-child {
+    max-width: 75%;
+    padding-left: 5vw;
+  }
+}
+
 .social__headline {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
