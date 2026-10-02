@@ -872,7 +872,7 @@ a {
 .insta-shot-wrapper {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   right: clamp(-35%, calc(5% + (1440px - 100vw) * 0.096), 5%);
   z-index: 3;
 }
