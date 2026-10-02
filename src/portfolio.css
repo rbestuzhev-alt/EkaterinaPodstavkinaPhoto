@@ -821,27 +821,13 @@ a {
   align-items: start;
   position: relative;
   z-index: 2;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .social__inner > div:first-child {
   margin-top: 150px;
   position: relative;
   z-index: 2;
-  max-width: 50%;
-  min-width: 0;
-  flex-shrink: 1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* Десктопы и планшеты (>1024px) - увеличенная ширина текста */
-@media (min-width: 1025px) {
-  .social__inner > div:first-child {
-    max-width: 75%;
-    padding-left: 5vw;
-  }
 }
 
 .social__headline {
@@ -886,8 +872,8 @@ a {
 .insta-shot-wrapper {
   position: absolute;
   top: 50%;
-  transform: translateY(-30%);
-  right: clamp(-35%, calc(5% + (1440px - 100vw) * 0.096), 5%);
+  transform: translateY(-50%);
+  right: clamp(16px, 4vw, 56px);
   z-index: 3;
 }
 
