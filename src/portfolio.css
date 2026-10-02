@@ -880,7 +880,7 @@ a {
   position: absolute;
   top: 50%;
   transform: translateY(calc(-50% + clamp(48px, 8vh, 96px)));
-  right: clamp(16px, 4vw, 56px);
+  right: 5%;
   z-index: 3;
 }
 
@@ -892,21 +892,28 @@ a {
   will-change: transform;
 }
 
-/* Планшеты: 768px - 1280px */
-/* Плавный переход для промежуточных экранов */
-@media (max-width: 1440px) and (min-width: 1024px) {
+/* ШИРОКИЕ ДЕСКТОПЫ (>1440px) — телефон полностью виден */
+@media (min-width: 1441px) {
   .insta-shot {
-    right: calc(10vw - 100px);
+    right: 5%;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1280px) {
-  .social__inner > div:first-child {
-    max-width: 50%;
+/* ПРОМЕЖУТОЧНЫЕ (1280px–1440px) — телефон начинает уезжать, видна ~80% */
+@media (max-width: 1440px) and (min-width: 1281px) {
+  .insta-shot {
+    right: -15%;
+  }
+}
+
+/* ПЛАНШЕТЫ (1024px–1280px) — телефон торчит на 2/3 (видна большая часть) */
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .insta-shot {
+    right: -30%;
   }
   
-  .insta-shot {
-    right: -66%;
+  .social__inner > div:first-child {
+    max-width: 50%;
   }
 }
 
