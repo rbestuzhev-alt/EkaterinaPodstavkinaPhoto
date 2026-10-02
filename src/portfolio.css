@@ -899,21 +899,34 @@ a {
   }
 }
 
-/* ПРОМЕЖУТОЧНЫЕ (1280px–1440px) — телефон начинает уезжать, видна ~80% */
-@media (max-width: 1440px) and (min-width: 1281px) {
-  .insta-shot {
-    right: -15%;
-  }
-}
-
-/* ПЛАНШЕТЫ (1024px–1280px) — телефон торчит на 2/3 (видна большая часть) */
-@media (max-width: 1280px) and (min-width: 1024px) {
-  .insta-shot {
-    right: -30%;
+/* ПРОМЕЖУТОЧНЫЕ ЭКРАНЫ (1024px–1440px) — flex-раскладка с плавным сдвигом */
+@media (max-width: 1440px) and (min-width: 1024px) {
+  .social__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    padding-right: 0;
   }
   
+  /* Текстовый блок слева — занимает 55% ширины */
   .social__inner > div:first-child {
-    max-width: 50%;
+    flex: 0 0 55%;
+    max-width: 55%;
+    padding-right: 40px;
+    margin-top: 0;
+  }
+  
+  /* Телефон справа — занимает 45% но уходит за край */
+  .insta-shot {
+    flex: 0 0 45%;
+    max-width: 45%;
+    position: relative;
+    right: -10%;
+    transform: translateY(0);
+    top: auto;
+    height: clamp(500px, 70vh, 750px);
   }
 }
 
