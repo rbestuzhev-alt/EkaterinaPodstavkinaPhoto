@@ -802,6 +802,17 @@ a {
   padding: clamp(40px, 6vh, 72px) 40px;
   overflow: visible;
   z-index: 3;
+  aspect-ratio: 2.13 / 1;
+  width: 100%;
+  height: auto;
+}
+
+/* Мобильные устройства - отключаем aspect-ratio */
+@media (max-width: 767px) {
+  .social {
+    aspect-ratio: auto;
+    height: auto;
+  }
 }
 
 .social__watermark-wrapper {
@@ -883,8 +894,8 @@ a {
 .insta-shot {
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
-  height: clamp(600px, 86vh, 920px);
-  width: auto;
+  height: auto;
+  width: clamp(280px, 28vw, 540px);
   max-width: 100%;
 }
 
