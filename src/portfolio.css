@@ -872,7 +872,7 @@ a {
 .insta-shot {
   position: absolute;
   top: 50%;
-  transform: translateY(-42%);
+  transform: translateY(-50%);
   right: clamp(16px, 4vw, 56px);
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
