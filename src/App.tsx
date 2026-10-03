@@ -425,19 +425,17 @@ export default function App() {
               <em>живыми моментами</em> и <strong>ПЛЁНКОЙ.</strong>
             </p>
           </div>
+        </div>
 
-          <div className="reveal">
-            <div className="insta-shot">
-              <img
-                src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
-                alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
-                width="1284"
-                height="2646"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+        <div className="insta-shot">
+          <img
+            src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
+            alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
+            width="1284"
+            height="2646"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 

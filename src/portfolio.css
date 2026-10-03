@@ -800,7 +800,7 @@ a {
   position: relative;
   background: var(--milk);
   padding: clamp(40px, 6vh, 72px) 40px;
-  overflow: hidden;
+  overflow: visible;
   z-index: 3;
 }
 
