@@ -872,8 +872,8 @@ a {
 .insta-shot {
   position: absolute;
   top: 50%;
-  transform: translateY(-57%);
-  right: 8%;
+  left: 69%;
+  transform: translate(-50%, -57%);
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
   height: clamp(600px, 86vh, 920px);
@@ -882,10 +882,17 @@ a {
   z-index: 3;
 }
 
-/* Планшеты: телефон чуть уходит за край */
+/* Планшеты: телефон под абзацем "СЪЁМКА" */
 @media (max-width: 1440px) and (min-width: 1024px) {
   .insta-shot {
-    right: 4%;
+    left: 76%;
+  }
+}
+
+/* Мобильные планшеты: телефон под абзацем "СЪЁМКА" */
+@media (max-width: 1024px) {
+  .insta-shot {
+    left: 80%;
   }
 }
 
