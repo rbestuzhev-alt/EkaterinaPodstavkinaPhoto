@@ -640,8 +640,8 @@ a {
   font-weight: 400;
 }
 
-/* Мобильные устройства для секции manifesto */
-@media (max-width: 480px) {
+/* Мобильные устройства и планшеты для секции manifesto */
+@media (max-width: 1024px) {
   /* Контейнер секции - вертикальный стек */
   .manifesto__inner {
     display: block !important;
@@ -672,6 +672,22 @@ a {
     margin-top: 20px !important;
     width: 100% !important;
     line-height: 1.4 !important;
+  }
+}
+
+/* Планшеты (481px–1024px) - увеличенные размеры */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .manifesto__collage-img1 {
+    max-height: 55vh !important;
+  }
+  
+  .manifesto__collage-img2 {
+    width: 40% !important;
+    margin-top: -40px !important;
+  }
+  
+  .manifesto__text {
+    margin-top: 28px !important;
   }
 }
 
