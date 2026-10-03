@@ -873,7 +873,7 @@ a {
   position: absolute;
   top: 50%;
   transform: translateY(-57%);
-  right: clamp(16px, 4vw, 56px);
+  right: clamp(40px, 7vw, 140px);
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
   height: clamp(600px, 86vh, 920px);
