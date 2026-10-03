@@ -1230,6 +1230,10 @@ a {
     padding-right: 20px;
   }
   
+  /* Уменьшаем нижний отступ секции INSTAGRAM на мобильных */
+  .social {
+    padding-bottom: 40px;
+  }
   
   .insta-shot {
     position: static;
