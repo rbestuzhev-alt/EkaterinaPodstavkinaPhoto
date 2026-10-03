@@ -640,6 +640,34 @@ a {
   font-weight: 400;
 }
 
+/* Мобильные устройства для секции manifesto */
+@media (max-width: 480px) {
+  .manifesto__inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .manifesto__collage {
+    max-height: 45vh;
+  }
+  
+  .manifesto__collage-img1 {
+    max-height: 45vh;
+  }
+  
+  .manifesto__collage-img2 {
+    width: 40%;
+    bottom: -10px;
+  }
+  
+  .manifesto__text {
+    transform: translateY(0);
+    margin-top: 16px;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+}
+
 /* ============================================
    PORTFOLIO SECTION
    ============================================ */
