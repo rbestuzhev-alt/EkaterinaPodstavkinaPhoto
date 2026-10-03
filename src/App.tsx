@@ -200,6 +200,26 @@ export default function App() {
     document.addEventListener('click', handleLightboxClose);
     document.addEventListener('keydown', handleEscape);
 
+    /* ---------- FIXED-SCALE POSTERS ---------- */
+    const updatePosters = () => {
+      if (window.innerWidth < 768) return;
+      
+      const posters = document.querySelectorAll('.fs-outer') as NodeListOf<HTMLElement>;
+      posters.forEach((poster) => {
+        const inner = poster.querySelector('.fs-inner') as HTMLElement;
+        if (!inner) return;
+        
+        const outerWidth = poster.clientWidth;
+        const scale = outerWidth / 2560;
+        
+        inner.style.transform = `scale(${scale})`;
+        poster.style.height = `${inner.offsetHeight * scale}px`;
+      });
+    };
+
+    updatePosters();
+    window.addEventListener('resize', updatePosters);
+
     return () => {
       observer.disconnect();
       lineObserver.disconnect();
@@ -207,6 +227,7 @@ export default function App() {
       document.removeEventListener('click', handleLightboxOpen);
       document.removeEventListener('click', handleLightboxClose);
       document.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('resize', updatePosters);
     };
   }, []);
 
@@ -282,39 +303,41 @@ export default function App() {
       </header>
 
       {/* ========== МАНИФЕСТ ========== */}
-      <section className="manifesto" id="about">
-        <div className="manifesto__inner">
-          <h2 className="manifesto__headline mixed-headline reveal line-mask">
-            <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
-              <span className="line-inner"><em>ты</em> НЕ ПОЗИРУЕШЬ.</span>
-            </span>
-          </h2>
+      <section className="fs-outer manifesto" id="about">
+        <div className="fs-inner">
+          <div className="manifesto__inner">
+            <h2 className="manifesto__headline mixed-headline reveal line-mask">
+              <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
+                <span className="line-inner"><em>ты</em> НЕ ПОЗИРУЕШЬ.</span>
+              </span>
+            </h2>
 
-          <div className="manifesto__collage reveal">
-            <img
-              className="manifesto__collage-img1"
-              src="https://i.postimg.cc/wMnMn920/611280113-17850826491613066-4070977003915591454-n.jpg"
-              alt="Кадр со съёмки Екатерины Подставкиной"
-              loading="lazy"
-            />
-            <img
-              className="manifesto__collage-img2"
-              src="https://i.postimg.cc/4yQ2S3Xx/649246192-17859272616613066-4078323034697577703-n.webp"
-              alt="Ч/б кадр со съёмки"
-              loading="lazy"
-            />
-          </div>
+            <div className="manifesto__collage reveal">
+              <img
+                className="manifesto__collage-img1"
+                src="https://i.postimg.cc/wMnMn920/611280113-17850826491613066-4070977003915591454-n.jpg"
+                alt="Кадр со съёмки Екатерины Подставкиной"
+                loading="lazy"
+              />
+              <img
+                className="manifesto__collage-img2"
+                src="https://i.postimg.cc/4yQ2S3Xx/649246192-17859272616613066-4078323034697577703-n.webp"
+                alt="Ч/б кадр со съёмки"
+                loading="lazy"
+              />
+            </div>
 
-          <div className="reveal">
-            <p className="manifesto__text">
-              Я Екатерина — editorial и love story-фотограф из Барнаула.
-              Мои работы живут на стыке живых эмоций и{' '}
-              <em>строгой композиции</em>.
-              Каждая съёмка создана так, чтобы вы забыли о присутствии камеры.
-            </p>
-            <a href="#services" className="btn arrow-link">
-              КАК Я РАБОТАЮ <ArrowIcon />
-            </a>
+            <div className="reveal">
+              <p className="manifesto__text">
+                Я Екатерина — editorial и love story-фотограф из Барнаула.
+                Мои работы живут на стыке живых эмоций и{' '}
+                <em>строгой композиции</em>.
+                Каждая съёмка создана так, чтобы вы забыли о присутствии камеры.
+              </p>
+              <a href="#services" className="btn arrow-link">
+                КАК Я РАБОТАЮ <ArrowIcon />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -412,30 +435,32 @@ export default function App() {
       </section>
 
       {/* ========== СОЦСЕТИ ========== */}
-      <section className="social curved-top curved-top--milk" id="journal">
-        <div className="social__watermark-wrapper">
-          <span className="watermark watermark--light" style={{ top: 'clamp(20px, 5vh, 56px)', left: '50%', transform: 'translateX(-50%)', fontSize: 'clamp(64px, 15vw, 210px)', lineHeight: 1, whiteSpace: 'nowrap', width: 'max-content' }}>INSTAGRAM</span>
-        </div>
-
-        <div className="social__inner">
-          <div className="reveal">
-            <h2 className="social__headline">INSTAGRAM</h2>
-            <p className="social__text">
-              <em>Заходите за</em> <strong>ЭСТЕТИКОЙ</strong>,{' '}
-              <em>живыми моментами</em> и <strong>ПЛЁНКОЙ.</strong>
-            </p>
+      <section className="fs-outer social curved-top curved-top--milk" id="journal">
+        <div className="fs-inner">
+          <div className="social__watermark-wrapper">
+            <span className="watermark watermark--light" style={{ top: '50px', left: '50%', transform: 'translateX(-50%)', fontSize: '210px', lineHeight: 1, whiteSpace: 'nowrap', width: 'max-content' }}>INSTAGRAM</span>
           </div>
-        </div>
 
-        <div className="insta-shot">
-          <img
-            src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
-            alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
-            width="1284"
-            height="2646"
-            loading="lazy"
-            decoding="async"
-          />
+          <div className="social__inner">
+            <div className="reveal">
+              <h2 className="social__headline">INSTAGRAM</h2>
+              <p className="social__text">
+                <em>Заходите за</em> <strong>ЭСТЕТИКОЙ</strong>,{' '}
+                <em>живыми моментами</em> и <strong>ПЛЁНКОЙ.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div className="insta-shot">
+            <img
+              src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
+              alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
+              width="1284"
+              height="2646"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </section>
 
