@@ -574,6 +574,17 @@ a {
   color: var(--milk);
   padding: 160px 40px 120px;
   overflow: hidden;
+  aspect-ratio: 1.92 / 1;
+  width: 100%;
+  height: auto;
+}
+
+/* Мобильные устройства - отключаем aspect-ratio */
+@media (max-width: 767px) {
+  .manifesto {
+    aspect-ratio: auto;
+    height: auto;
+  }
 }
 
 .manifesto__inner {
@@ -599,8 +610,9 @@ a {
 }
 
 .manifesto__collage-img1 {
-  width: 80%;
-  height: 100%;
+  width: clamp(300px, 40vw, 760px);
+  height: auto;
+  aspect-ratio: 3/4;
   object-fit: cover;
   position: relative;
   z-index: 1;
@@ -610,7 +622,7 @@ a {
   position: absolute;
   bottom: -20px;
   right: 0;
-  width: 50%;
+  width: clamp(150px, 20vw, 380px);
   aspect-ratio: 3/4;
   object-fit: cover;
   z-index: 2;
