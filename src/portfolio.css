@@ -497,6 +497,12 @@ a {
   padding-inline: 4vw;
 }
 
+@media (min-width: 1281px) {
+  .hero__name {
+    font-size: clamp(44px, 7.7vw, 99px);
+  }
+}
+
 .hero__nav {
   position: absolute;
   bottom: 0;
