@@ -800,19 +800,8 @@ a {
   position: relative;
   background: var(--milk);
   padding: clamp(40px, 6vh, 72px) 40px;
-  overflow: visible;
+  overflow: hidden;
   z-index: 3;
-  aspect-ratio: 2.13 / 1;
-  width: 100%;
-  height: auto;
-}
-
-/* Мобильные устройства - отключаем aspect-ratio */
-@media (max-width: 767px) {
-  .social {
-    aspect-ratio: auto;
-    height: auto;
-  }
 }
 
 .social__watermark-wrapper {
@@ -879,24 +868,18 @@ a {
   margin-top: 24px;
 }
 
-/* Instagram shot wrapper - центрирование и позиционирование */
-.insta-shot-wrapper {
+/* Instagram shot */
+.insta-shot {
   position: absolute;
   top: 50%;
-  transform: translateY(-42%);
+  transform: translateY(-50%);
   right: clamp(16px, 4vw, 56px);
-  z-index: 3;
-}
-
-
-
-/* Instagram shot - размер */
-.insta-shot {
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
-  height: auto;
-  width: clamp(280px, 28vw, 540px);
+  height: clamp(600px, 86vh, 920px);
+  width: auto;
   max-width: 100%;
+  z-index: 3;
 }
 
 .insta-shot img {
@@ -1210,20 +1193,14 @@ a {
     padding-right: 20px;
   }
   
-
-  
-  .insta-shot-wrapper {
-    position: static;
-    transform: translateY(-42%);
-    width: min(72vw, 340px);
-    margin: 2rem auto 0;
-  }
   
   .insta-shot {
-    width: 100%;
+    position: static;
+    transform: none;
+    width: min(72vw, 340px);
     height: auto;
+    margin: 2rem auto 0;
   }
-
   .hero__tagline {
     white-space: normal;
     font-size: 13px;
