@@ -572,27 +572,6 @@ a {
 }
 
 /* ============================================
-   FIXED-SCALE POSTERS (fs-outer / fs-inner)
-   ============================================ */
-.fs-outer {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.fs-inner {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .fs-inner {
-    width: 2560px;
-    transform-origin: top left;
-    position: relative;
-  }
-}
-
-/* ============================================
    MANIFESTO SECTION
    ============================================ */
 .manifesto {
@@ -614,7 +593,7 @@ a {
 
 .manifesto__headline {
   grid-column: 1 / -1;
-  font-size: 179px; /* 7vw * 2560 = 179.2px */
+  font-size: clamp(40px, 7vw, 90px);
   margin-bottom: 40px;
   color: var(--milk);
 }
@@ -647,7 +626,7 @@ a {
 
 .manifesto__text {
   font-family: 'Playfair Display', serif;
-  font-size: 59px; /* 2.3vw * 2560 = 58.88px */
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
   line-height: 1.55;
   color: var(--milk);
   max-width: 40ch;
@@ -839,11 +818,6 @@ a {
   pointer-events: none;
 }
 
-/* Водяное слово INSTAGRAM - фиксированные размеры для 2560px */
-.social__watermark-wrapper .watermark {
-  font-size: 384px !important; /* 15vw * 2560 = 384px */
-}
-
 .social__inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -872,7 +846,7 @@ a {
 }
 
 .social__text {
-  font-size: 102px; /* 4vw * 2560 = 102.4px */
+  font-size: clamp(28px, 4vw, 44px);
   line-height: 1.2;
   margin-bottom: 32px;
 }
@@ -908,7 +882,7 @@ a {
   transform: translate(-50%, -59%);
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
-  height: 920px; /* 86vh * 1440 = 1238.4px, но ограничим 920px */
+  height: clamp(600px, 86vh, 920px);
   width: auto;
   max-width: 100%;
   z-index: 3;
