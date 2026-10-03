@@ -488,7 +488,7 @@ a {
   text-align: center;
   color: var(--milk);
   font-family: 'Italiana', serif;
-  font-size: clamp(2.4rem, 11.5vw, 12rem);
+  font-size: clamp(2rem, 9.8vw, 10.2rem);
   line-height: 1.1;
   letter-spacing: 0.02em;
   margin-top: -40px;
