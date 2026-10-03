@@ -873,13 +873,20 @@ a {
   position: absolute;
   top: 50%;
   transform: translateY(-57%);
-  right: clamp(40px, 7vw, 140px);
+  right: 8%;
   aspect-ratio: 1284 / 2646;
   overflow: hidden;
   height: clamp(600px, 86vh, 920px);
   width: auto;
   max-width: 100%;
   z-index: 3;
+}
+
+/* Планшеты: телефон чуть уходит за край */
+@media (max-width: 1440px) and (min-width: 1024px) {
+  .insta-shot {
+    right: 4%;
+  }
 }
 
 .insta-shot img {
