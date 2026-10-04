@@ -502,7 +502,7 @@ export default function App() {
             <a href="#about">О себе</a>
             <a href="#portfolio">Портфолио</a>
             <a href="#services">Услуги</a>
-            <a href="#journal">Журнал</a>
+            <a href="#journal">Галерея</a>
             <a href="#contact">Контакты</a>
           </nav>
 
