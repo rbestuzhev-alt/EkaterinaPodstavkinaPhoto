@@ -585,18 +585,10 @@ a {
     transform: translateY(-35%);
   }
   
-  /* Опустить tagline на 5% вниз */
+  /* Опустить tagline на 20% от высоты hero */
   .hero__tagline {
     animation: none;
-    transform: translateX(-50%) translateY(5%);
-  }
-}
-
-/* Экраны ≤1024px с тач-управлением: опустить tagline на 10% от высоты hero */
-@media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
-  .hero__tagline {
-    animation: none;
-    transform: translateX(-50%) translateY(10vh);
+    bottom: -20vh;
   }
 }
 
