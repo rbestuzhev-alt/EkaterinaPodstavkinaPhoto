@@ -9,6 +9,35 @@ html, body {
   overflow-x: hidden;
 }
 
+/* ============================================
+   РАЗДЕЛЕНИЕ НА ТАЧ И МЫШЬ
+   ============================================ */
+
+/* По умолчанию тач-элементы скрыты */
+.touch-only {
+  display: none;
+}
+
+/* Сенсорные экраны */
+@media (hover: none) and (pointer: coarse) {
+  .touch-only {
+    display: block;
+  }
+  .mouse-only {
+    display: none !important;
+  }
+}
+
+/* Мышь / трекпад */
+@media (hover: hover) and (pointer: fine) {
+  .touch-only {
+    display: none !important;
+  }
+  .mouse-only {
+    display: block;
+  }
+}
+
 /* Мгновенный телепорт к якорям (без плавной анимации) */
 html {
   scroll-behavior: auto !important;
