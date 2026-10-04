@@ -232,7 +232,7 @@ export default function App() {
         <div className="hero__overlay"></div>
 
         <div className="hero__top">
-          <div className="hero__socials">
+          <div className="hero__socials mouse-only">
             <a href="https://www.instagram.com/eppho.to/?hl=ru" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
