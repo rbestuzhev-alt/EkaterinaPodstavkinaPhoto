@@ -448,8 +448,8 @@ a {
 @media (max-width: 1024px) {
   .hero {
     height: auto;
-    min-height: 72vh;
-    padding-bottom: 4.25vh;
+    min-height: 77vh;
+    padding-bottom: 4.57vh;
   }
 }
 
