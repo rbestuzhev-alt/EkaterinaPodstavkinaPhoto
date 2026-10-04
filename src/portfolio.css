@@ -317,6 +317,18 @@ a {
   color: var(--milk);
 }
 
+/* Плавный переход для кнопок "КАК Я РАБОТАЮ" и "ЗАПИСАТЬСЯ НА СЪЁМКУ" */
+.btn-how,
+.btn-signup {
+  transition:
+    background 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 /* Тач-устройства: кнопки плавно переходят в hover-вид при появлении на экране */
 @media (hover: none) and (pointer: coarse) {
   .btn-how.touch-lit,
