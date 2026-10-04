@@ -578,10 +578,10 @@ a {
   }
 }
 
-/* Тач-устройства: поднять имя на 20% вверх */
+/* Тач-устройства: поднять имя на 50% вверх */
 @media (hover: none) and (pointer: coarse) {
   .hero__name {
-    transform: translateY(-20%);
+    transform: translateY(-50%);
   }
 }
 
