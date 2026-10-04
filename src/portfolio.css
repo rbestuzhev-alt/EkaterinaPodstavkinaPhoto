@@ -26,8 +26,22 @@ html, body {
   .mouse-only {
     display: none !important;
   }
+  .hero__top {
+    justify-content: center;
+  }
   .hero__join {
-    margin-right: -5%;
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 28px;
+  }
+  .hero__join-arrow-down {
+    display: block;
+  }
+  .hero__join-arrow-right {
+    display: none;
   }
 }
 
@@ -39,6 +53,21 @@ html, body {
   .mouse-only {
     display: block;
   }
+  .hero__join-arrow-down {
+    display: none;
+  }
+  .hero__join-arrow-right {
+    display: inline-flex;
+  }
+}
+
+/* Базовые стили для стрелок кнопки */
+.hero__join-arrow-down {
+  display: none;
+}
+
+.hero__join-arrow-right {
+  display: inline-flex;
 }
 
 /* Мгновенный телепорт к якорям (без плавной анимации) */
