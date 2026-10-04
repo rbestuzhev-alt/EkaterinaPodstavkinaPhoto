@@ -514,7 +514,7 @@ export default function App() {
         </div>
 
         <div className="footer__bottom">
-          <nav className="footer__bottom-nav">
+          <nav className="footer__bottom-nav mouse-only">
             <a href="#about">О себе</a>
             <a href="#portfolio">Портфолио</a>
             <a href="#services">Услуги</a>
