@@ -279,6 +279,8 @@ export default function App() {
         <p className="hero__tagline">
           Ловлю свет и создаю <em>истории</em>.
         </p>
+        
+        <a href="#contact" className="hero-contacts touch-only">МОИ КОНТАКТЫ</a>
       </header>
 
       {/* ========== МАНИФЕСТ ========== */}

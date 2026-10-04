@@ -535,6 +535,27 @@ a {
   color: var(--milk);
 }
 
+.hero-contacts {
+  display: none;
+  background: var(--red);
+  color: var(--milk);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 14px 36px;
+  width: max-content;
+  margin: 28px auto 0;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .hero-contacts {
+    display: block;
+  }
+}
+
 .hero__name {
   position: relative;
   z-index: 5;
