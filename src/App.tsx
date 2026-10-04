@@ -252,14 +252,7 @@ export default function App() {
             </a>
           </div>
           <a href="#scroll-to-insta-btn" className="hero__join arrow-link">
-            <span className="hero__join-text">ПОДПИСАТЬСЯ</span>
-            <span className="hero__join-arrow-right mouse-only"><ArrowIcon /></span>
-            <span className="hero__join-arrow-down touch-only">
-              <svg className="arrow-icon" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(90deg)' }}>
-                <line x1="0" y1="6" x2="34" y2="6" stroke="currentColor" strokeWidth="1.2" />
-                <polyline points="30,2 36,6 30,10" fill="none" stroke="currentColor" strokeWidth="1.2" />
-              </svg>
-            </span>
+            ПОДПИСАТЬСЯ <ArrowIcon />
           </a>
 
         </div>
