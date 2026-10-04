@@ -648,6 +648,13 @@ a {
     height: auto !important;
   }
 
+  /* Убираем фиксированную высоту контейнера коллажа */
+  .manifesto__collage {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
   /* Большая красная фото */
   .manifesto__collage-img1 {
     position: relative !important;
@@ -656,11 +663,11 @@ a {
     object-fit: cover !important;
   }
 
-  /* Малая ч/б фото */
+  /* Малая ч/б фото - поднято на 70% высоты */
   .manifesto__collage-img2 {
     position: relative !important;
     width: 45% !important;
-    margin: -36% 12px 0 auto !important;
+    margin: -42% 12px 0 auto !important;
     bottom: auto !important;
     right: auto !important;
   }
@@ -681,9 +688,10 @@ a {
     max-height: 55vh !important;
   }
   
+  /* Ч/б фото поднято на 70% высоты */
   .manifesto__collage-img2 {
     width: 40% !important;
-    margin-top: -32% !important;
+    margin-top: -37% !important;
   }
   
   .manifesto__text {
