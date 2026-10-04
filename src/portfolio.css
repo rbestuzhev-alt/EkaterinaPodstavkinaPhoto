@@ -970,7 +970,7 @@ a {
 @media (min-width: 481px) and (max-width: 1024px) {
   /* Текст занимает левую половину, перенос только по словам */
   .social__inner > div:first-child {
-    max-width: 45% !important;
+    max-width: 55% !important;
     overflow-wrap: normal !important;
     word-break: normal !important;
     hyphens: none !important;
@@ -980,7 +980,7 @@ a {
   .insta-shot {
     left: 70% !important;
     right: auto !important;
-    transform: scale(0.6) translate(-50%, -90%) !important;
+    transform: scale(0.6) translate(-55%, -90%) !important;
   }
 }
 
