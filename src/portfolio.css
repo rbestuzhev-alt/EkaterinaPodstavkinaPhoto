@@ -519,6 +519,7 @@ a {
   padding: 13px 26px;
   background: transparent;
   transition: background 0.3s ease, color 0.3s ease;
+  margin-left: auto;
 }
 
 .hero__join:hover {
