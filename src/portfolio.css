@@ -584,12 +584,6 @@ a {
     animation: none;
     transform: translateY(-35%);
   }
-  
-  /* Опустить tagline на 20% от высоты hero */
-  .hero__tagline {
-    animation: none;
-    bottom: -20vh;
-  }
 }
 
 .hero__nav {
