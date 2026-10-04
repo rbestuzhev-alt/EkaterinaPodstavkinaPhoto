@@ -214,7 +214,7 @@ export default function App() {
           entries.forEach((entry) => {
             entry.target.classList.toggle('touch-lit', entry.isIntersecting);
           });
-        }, { threshold: 0.6 });
+        }, { rootMargin: '0px 0px -30% 0px', threshold: 0 });
         
         touchButtons.forEach((btn) => touchLitObserver!.observe(btn));
       }
