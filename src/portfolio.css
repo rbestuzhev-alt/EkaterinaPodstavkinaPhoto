@@ -336,6 +336,12 @@ a {
     background: var(--red);
     color: var(--milk);
   }
+  
+  /* Анимация стрелки для тач-устройств */
+  .btn-how.touch-lit .arrow-icon,
+  .btn-signup.touch-lit .arrow-icon {
+    transform: translateX(7px);
+  }
 }
 
 .btn--outline {
