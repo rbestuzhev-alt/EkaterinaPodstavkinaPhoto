@@ -276,7 +276,7 @@ export default function App() {
             <a href="#about">О СЕБЕ</a>
             <a href="#portfolio">ПОРТФОЛИО</a>
             <a href="#services">УСЛУГИ</a>
-            <a href="#journal">ЖУРНАЛ</a>
+            <a href="#journal">ГАЛЕРЕЯ</a>
             <a href="#contact">КОНТАКТЫ</a>
           </nav>
         </div>
