@@ -37,6 +37,11 @@ export default function App() {
 
 
   useEffect(() => {
+    // JS-фолбэк для тач-устройств
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+      document.body.classList.add('is-touch');
+    }
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- ПРЕЛОАДЕР ---------- */
