@@ -251,7 +251,7 @@ export default function App() {
               </svg>
             </a>
           </div>
-          <a href="#scroll-to-insta-btn" className="hero__join arrow-link">
+          <a href="#scroll-to-insta-btn" className="hero__join arrow-link mouse-only">
             ПОДПИСАТЬСЯ <ArrowIcon />
           </a>
 
