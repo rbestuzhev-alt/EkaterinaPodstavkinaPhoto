@@ -584,6 +584,12 @@ a {
     animation: none;
     transform: translateY(-35%);
   }
+  
+  /* Опустить tagline на 5% вниз */
+  .hero__tagline {
+    animation: none;
+    transform: translateX(-50%) translateY(5%);
+  }
 }
 
 .hero__nav {
