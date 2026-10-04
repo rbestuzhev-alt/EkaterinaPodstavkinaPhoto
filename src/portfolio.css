@@ -578,6 +578,13 @@ a {
   }
 }
 
+/* Тач-устройства: поднять имя на 20% вверх */
+@media (hover: none) and (pointer: coarse) {
+  .hero__name {
+    transform: translateY(-20%);
+  }
+}
+
 .hero__nav {
   position: absolute;
   bottom: 0;
