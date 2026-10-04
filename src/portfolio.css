@@ -26,6 +26,9 @@ html, body {
   .mouse-only {
     display: none !important;
   }
+  .hero__join {
+    margin-right: -5%;
+  }
 }
 
 /* Мышь / трекпад */
