@@ -966,10 +966,21 @@ a {
   }
 }
 
-/* Планшеты 481px–1024px: компактный телефон, 1/3 за краем */
+/* Планшеты 481px–1024px: текст слева, телефон под буквой R */
 @media (min-width: 481px) and (max-width: 1024px) {
+  /* Текст занимает левую половину, перенос только по словам */
+  .social__inner > div:first-child {
+    max-width: 45% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+  
+  /* Телефон центрирован под буквой R водяного слова */
   .insta-shot {
-    transform: scale(0.6) translate(25%, -50%) !important;
+    left: 70% !important;
+    right: auto !important;
+    transform: scale(0.6) translate(-50%, -50%) !important;
   }
 }
 
