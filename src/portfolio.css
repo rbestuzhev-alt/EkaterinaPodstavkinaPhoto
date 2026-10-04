@@ -1,219 +1,55 @@
 /* ============================================
-   CSS VARIABLES
+   ЕКАТЕРИНА ПОДСТАВКИНА — PORTFOLIO
+   Editorial / Fashion Magazine Aesthetic
+   Фотолаборатория: чёрный + молочный + киноварь
    ============================================ */
-:root {
-  --black: #0a0a0a;
-  --milk: #f5f5f0;
-  --red: #c41e3a;
-  --smoke: #6b6b6b;
-}
 
-/* ============================================
-   RESET & BASE
-   ============================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--black);
-  background: var(--milk);
+/* Глобальное обрезание горизонтального выхода */
+html, body {
   overflow-x: hidden;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
 /* ============================================
-   SELECTION
+   РАЗДЕЛЕНИЕ НА ТАЧ И МЫШЬ
    ============================================ */
-::selection {
-  background: var(--red);
-  color: var(--milk);
+
+/* По умолчанию тач-элементы скрыты */
+.touch-only {
+  display: none;
+}
+
+/* Сенсорные экраны */
+@media (hover: none) and (pointer: coarse) {
+  .touch-only {
+    display: block;
+  }
+  .mouse-only {
+    display: none !important;
+  }
+}
+
+/* Мышь / трекпад */
+@media (hover: hover) and (pointer: fine) {
+  .touch-only {
+    display: none !important;
+  }
+  .mouse-only {
+    display: block;
+  }
+}
+
+/* Мгновенный телепорт к якорям (без плавной анимации) */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Центрирование кнопки при скролле к якорю */
+#scroll-to-insta-btn {
+  scroll-margin-top: calc(50vh - 25px);
 }
 
 /* ============================================
-   FOCUS VISIBLE
-   ============================================ */
-:focus-visible {
-  outline: 2px solid var(--red);
-  outline-offset: 2px;
-}
-
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
-.mixed-headline {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-}
-
-.mixed-headline em {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-weight: 400;
-  text-transform: lowercase;
-  letter-spacing: 0;
-}
-
-/* ============================================
-   ARROW ICON
-   ============================================ */
-.arrow-icon {
-  display: inline-block;
-  width: 40px;
-  height: 12px;
-  margin-left: 8px;
-  transition: transform 0.3s ease;
-  vertical-align: middle;
-}
-
-.arrow-link:hover .arrow-icon,
-.btn:hover .arrow-icon {
-  transform: translateX(7px);
-}
-
-/* ============================================
-   BUTTONS
-   ============================================ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  background: var(--black);
-  color: var(--milk);
-  padding: 16px 32px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 12px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.btn:hover {
-  background: var(--red);
-  color: var(--milk);
-}
-
-.btn--outline {
-  background: transparent;
-  border: 1px solid var(--milk);
-  color: var(--milk);
-}
-
-.btn--outline:hover {
-  background: var(--red);
-  border-color: var(--red);
-  color: var(--milk);
-}
-
-/* ============================================
-   WATERMARK
-   ============================================ */
-.watermark {
-  position: absolute;
-  font-family: 'Italiana', serif;
-  font-size: clamp(80px, 20vw, 300px);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
-
-.watermark--light {
-  color: rgba(11, 10, 8, 0.06);
-}
-
-/* ============================================
-   CURVED TOP
-   ============================================ */
-.curved-top {
-  position: relative;
-}
-
-.curved-top::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  left: -30%;
-  width: 160%;
-  height: 160px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-.curved-top--milk::before {
-  background: var(--milk);
-}
-
-.curved-top--black::before {
-  background: var(--black);
-}
-
-/* ============================================
-   REVEAL ANIMATION
-   ============================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================
-   LINE MASK REVEAL
-   ============================================ */
-.line-mask .line {
-  display: block;
-  overflow: hidden;
-  line-height: 1.15;
-}
-
-.line-mask .line + .line {
-  margin-top: -0.15em;
-}
-
-.line-mask .line-inner {
-  display: inline-block;
-  transform: translateY(110%);
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: calc(var(--i, 0) * 100ms);
-}
-
-.line-mask.in-view .line-inner {
-  transform: translateY(0);
-}
-
-/* ============================================
-   PRELOADER
+   1. ПРЕЛОАДЕР "ПРОЯВКА"
    ============================================ */
 .preloader {
   position: fixed;
@@ -248,8 +84,46 @@ a {
   }
 }
 
+/* Управление тяжелыми анимациями */
+body:not(.loaded) .hero__bg img,
+body:not(.loaded) body::after {
+  animation-play-state: paused !important;
+}
+
+body.loaded .hero__bg img {
+  animation-play-state: running;
+}
+
+body.loaded::after {
+  animation-play-state: running;
+}
+
 /* ============================================
-   PORTFOLIO CARD IMAGE
+   2. LINE-MASK REVEAL ЗАГОЛОВКОВ
+   ============================================ */
+.line-mask .line {
+  display: block;
+  overflow: hidden;
+  line-height: 1.15;
+}
+
+.line-mask .line + .line {
+  margin-top: -0.15em;
+}
+
+.line-mask .line-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 100ms);
+}
+
+.line-mask.in-view .line-inner {
+  transform: translateY(0);
+}
+
+/* ============================================
+   3. ПРОЯВКА КАДРОВ В ПОРТФОЛИО
    ============================================ */
 .portfolio__card-img {
   filter: blur(14px) grayscale(1) contrast(0.75) brightness(1.1);
@@ -258,6 +132,327 @@ a {
 
 .portfolio__card-img.developed {
   filter: none;
+}
+
+/* ============================================
+   5. ЖИВОЕ ЗЕРНО
+   ============================================ */
+body::after {
+  animation: grain 0.9s steps(2) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -3%); }
+  20% { transform: translate(3%, 2%); }
+  30% { transform: translate(-3%, 4%); }
+  40% { transform: translate(4%, -2%); }
+  50% { transform: translate(-2%, 3%); }
+  60% { transform: translate(3%, -3%); }
+  70% { transform: translate(-4%, 2%); }
+  80% { transform: translate(2%, -4%); }
+  90% { transform: translate(-3%, 3%); }
+}
+
+/* ============================================
+   PREFERS-REDUCED-MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .preloader {
+    display: none !important;
+  }
+
+  .line-mask .line-inner {
+    transform: translateY(0) !important;
+    transition: none !important;
+  }
+
+  .portfolio__card-img {
+    filter: none !important;
+    transition: none !important;
+  }
+
+  body::after {
+    animation: none !important;
+  }
+}
+
+/* ---------- CSS VARIABLES ---------- */
+:root {
+  --black: #0B0A08;
+  --milk: #EFEBE4;
+  --red: #C0291A;
+  --smoke: #8F8B85;
+  --line-on-black: rgba(239,235,228,.15);
+  --line-on-milk: rgba(11,10,8,.12);
+}
+
+/* ---------- RESET & BASE ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--black);
+  background: var(--black);
+  overflow-x: hidden;
+}
+
+/* Плёночное зерно */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- SELECTION ---------- */
+::selection {
+  background: var(--red);
+  color: var(--milk);
+}
+
+/* ---------- FOCUS VISIBLE ---------- */
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ---------- TYPOGRAPHY HELPERS ---------- */
+.font-serif {
+  font-family: 'Italiana', serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.uppercase-nav {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+}
+
+/* ---------- MIXED HEADLINE ---------- */
+.mixed-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.mixed-headline em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 0;
+}
+
+/* ---------- ARROW SVG ---------- */
+.arrow-icon {
+  display: inline-block;
+  width: 40px;
+  height: 12px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+.arrow-link:hover .arrow-icon,
+.btn:hover .arrow-icon {
+  transform: translateX(7px);
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--black);
+  color: var(--milk);
+  padding: 16px 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--red);
+  color: var(--milk);
+}
+
+/* Плавный переход для кнопок "КАК Я РАБОТАЮ" и "ЗАПИСАТЬСЯ НА СЪЁМКУ" */
+.btn-how,
+.btn-signup {
+  transition:
+    background 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Тач-устройства: кнопки плавно переходят в hover-вид при появлении на экране */
+@media (hover: none) and (pointer: coarse) {
+  .btn-how.touch-lit,
+  .btn-signup.touch-lit {
+    background: var(--red);
+    color: var(--milk);
+  }
+  
+  /* Анимация стрелки для тач-устройств */
+  .btn-how.touch-lit .arrow-icon,
+  .btn-signup.touch-lit .arrow-icon {
+    transform: translateX(7px);
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--milk);
+  color: var(--milk);
+}
+
+.btn--outline:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--milk);
+}
+
+/* ---------- WATERMARK WORD ---------- */
+.watermark {
+  position: absolute;
+  font-family: 'Italiana', serif;
+  font-size: clamp(80px, 20vw, 300px);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.watermark--dark {
+  color: rgba(239, 235, 228, 0.05);
+}
+
+.watermark--light {
+  color: rgba(11, 10, 8, 0.06);
+}
+
+/* ---------- CURVED SECTION TRANSITION ---------- */
+.curved-top {
+  position: relative;
+}
+
+.curved-top::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: -30%;
+  width: 160%;
+  height: 160px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.curved-top--milk::before {
+  background: var(--milk);
+}
+
+.curved-top--black::before {
+  background: var(--black);
+}
+
+/* ---------- REVEAL ANIMATION ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- HERO ENTRANCE ANIMATION ---------- */
+.hero__name {
+  animation: heroFadeIn 1.5s ease-out 0.3s both;
+}
+
+.hero__tagline {
+  animation: heroFadeInSimple 1.2s ease-out 0.8s both;
+}
+
+@keyframes heroFadeInSimple {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero__top {
+  animation: heroFadeIn 1s ease-out 0.5s both;
+}
+
+.hero__nav {
+  animation: heroSlideUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================
@@ -273,6 +468,14 @@ a {
   justify-content: center;
   align-items: center;
   background-color: var(--black);
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+    min-height: 92.4vh;
+    padding-bottom: 0;
+  }
 }
 
 .hero__bg {
@@ -375,6 +578,20 @@ a {
   padding-inline: 4vw;
 }
 
+@media (min-width: 1281px) {
+  .hero__name {
+    font-size: clamp(44px, 7.7vw, 99px);
+  }
+}
+
+/* Тач-устройства: отключить анимацию и поднять имя на 35% вверх */
+@media (hover: none) and (pointer: coarse) {
+  .hero__name {
+    animation: none;
+    transform: translateY(-35%);
+  }
+}
+
 .hero__nav {
   position: absolute;
   bottom: 0;
@@ -454,6 +671,13 @@ a {
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  .manifesto {
+    padding-top: 80px;
+    margin-top: 0;
+  }
+}
+
 .manifesto__inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -510,6 +734,65 @@ a {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-weight: 400;
+}
+
+/* Мобильные устройства и планшеты для секции manifesto */
+@media (max-width: 1024px) {
+  /* Контейнер секции - вертикальный стек */
+  .manifesto__inner {
+    display: block !important;
+    height: auto !important;
+  }
+
+  /* Убираем фиксированную высоту контейнера коллажа */
+  .manifesto__collage {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  /* Большая красная фото */
+  .manifesto__collage-img1 {
+    position: relative !important;
+    width: 100% !important;
+    max-height: 42vh !important;
+    object-fit: cover !important;
+  }
+
+  /* Малая ч/б фото - поднято на 70% высоты */
+  .manifesto__collage-img2 {
+    position: relative !important;
+    width: 45% !important;
+    margin: -42% 12px 0 auto !important;
+    bottom: auto !important;
+    right: auto !important;
+  }
+
+  /* Текст — строго после фото в нормальном потоке */
+  .manifesto__text {
+    position: relative !important;
+    transform: none !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Планшеты (481px–1024px) - увеличенные размеры */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .manifesto__collage-img1 {
+    max-height: 55vh !important;
+  }
+  
+  /* Ч/б фото поднято на 70% высоты */
+  .manifesto__collage-img2 {
+    width: 40% !important;
+    margin-top: -37% !important;
+  }
+  
+  .manifesto__text {
+    margin-top: 28px !important;
+  }
 }
 
 /* ============================================
@@ -575,9 +858,15 @@ a {
   will-change: transform;
 }
 
+.portfolio__card {
+  cursor: zoom-in;
+}
+
 .portfolio__card:hover .portfolio__card-img {
   transform: scale(1.04);
 }
+
+
 
 .portfolio__card-link {
   position: absolute;
@@ -733,6 +1022,14 @@ a {
   font-size: 0.7em;
 }
 
+.social__desc {
+  font-size: 15px;
+  color: rgba(11,10,8,.55);
+  line-height: 1.7;
+  margin-top: 24px;
+}
+
+/* Instagram shot */
 .insta-shot {
   position: absolute;
   top: 50%;
@@ -746,12 +1043,48 @@ a {
   z-index: 3;
 }
 
+/* Планшеты: телефон под абзацем "СЪЁМКА" */
+@media (max-width: 1440px) and (min-width: 1024px) {
+  .insta-shot {
+    left: 76%;
+  }
+}
+
+/* Мобильные планшеты: телефон под абзацем "СЪЁМКА" */
+@media (max-width: 1024px) {
+  .insta-shot {
+    left: 80%;
+  }
+}
+
+/* Планшеты 481px–1024px: текст слева, телефон под буквой R */
+@media (min-width: 481px) and (max-width: 1024px) {
+  /* Текст занимает левую половину, перенос только по словам */
+  .social__inner > div:first-child {
+    max-width: 55% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+  
+  /* Телефон центрирован под буквой R водяного слова */
+  .insta-shot {
+    left: 70% !important;
+    right: auto !important;
+    transform: scale(0.6) translate(-57.5%, -95%) !important;
+  }
+}
+
 .insta-shot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
+
+
+
+
 
 /* ============================================
    NEWSLETTER SECTION
@@ -834,6 +1167,27 @@ a {
   line-height: 1.7;
 }
 
+/* Мобильные устройства для секции newsletter */
+@media (max-width: 480px) {
+  .newsletter {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .newsletter__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .newsletter__headline {
+    font-size: clamp(22px, 7.5vw, 34px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+
+
 /* ============================================
    FOOTER
    ============================================ */
@@ -844,11 +1198,12 @@ a {
   overflow: hidden;
 }
 
+/* Marquee */
 .marquee {
   overflow: hidden;
   white-space: nowrap;
   padding: 40px 0;
-  border-bottom: 1px solid rgba(239,235,228,.15);
+  border-bottom: 1px solid var(--line-on-black);
 }
 
 .marquee__track {
@@ -890,7 +1245,7 @@ a {
 }
 
 .footer__bottom {
-  border-top: 1px solid rgba(239,235,228,.15);
+  border-top: 1px solid var(--line-on-black);
   padding: 32px 40px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -900,6 +1255,17 @@ a {
 
 .footer__bottom-nav {
   justify-self: start;
+}
+
+.footer__bottom-social {
+  justify-self: center;
+}
+
+.footer__copy {
+  justify-self: end;
+}
+
+.footer__bottom-nav {
   display: flex;
   gap: 24px;
 }
@@ -919,7 +1285,6 @@ a {
 }
 
 .footer__bottom-social {
-  justify-self: center;
   display: flex;
   gap: 16px;
 }
@@ -940,138 +1305,74 @@ a {
   fill: none;
 }
 
+/* Тач-устройства: увеличиваем иконки соцсетей в футере */
+@media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+  .footer__bottom-social a {
+    padding: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer__bottom-social svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
 .footer__copy {
-  justify-self: end;
   font-size: 12px;
   color: var(--smoke);
 }
 
-/* ============================================
-   LIGHTBOX
-   ============================================ */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(11, 10, 8, 0.94);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
-}
 
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity 0.4s ease, visibility 0s linear 0s;
-}
-
-.lightbox-img {
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain;
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
-}
-
-.lightbox.active .lightbox-img {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  background: none;
-  border: none;
-  color: var(--milk);
-  font-size: 32px;
-  cursor: pointer;
-  z-index: 10000;
-}
-
-/* ============================================
-   TOUCH/MOUSE SEPARATION
-   ============================================ */
-.touch-only {
-  display: none;
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .touch-only {
-    display: block;
-  }
-  .mouse-only {
-    display: none !important;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .touch-only {
-    display: none !important;
-  }
-  .mouse-only {
-    display: block;
-  }
-}
 
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 1024px) {
-  .hero {
-    height: auto;
-    min-height: 92.4vh;
-    padding-bottom: 0;
+
+/* Большие экраны - увеличенные карточки */
+@media (min-width: 1440px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
   }
   
-  .manifesto {
-    padding-top: 80px;
-    margin-top: 0;
+  .portfolio__card {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .portfolio__card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (max-width: 1200px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .manifesto__inner {
-    display: block !important;
-    height: auto !important;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__nav nav {
+    display: none;
   }
   
-  .manifesto__collage {
-    height: auto !important;
-    min-height: 0 !important;
-    aspect-ratio: auto !important;
-  }
+
   
-  .manifesto__collage-img1 {
-    position: relative !important;
-    width: 100% !important;
-    max-height: 42vh !important;
-    object-fit: cover !important;
-  }
-  
-  .manifesto__collage-img2 {
-    position: relative !important;
-    width: 45% !important;
-    margin: -42% 12px 0 auto !important;
-    bottom: auto !important;
-    right: auto !important;
-  }
-  
-  .manifesto__text {
-    position: relative !important;
-    transform: none !important;
-    margin-top: 20px !important;
-    width: 100% !important;
-    line-height: 1.4 !important;
-  }
-  
-  .portfolio__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .manifesto__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   
   .services__steps {
@@ -1088,12 +1389,22 @@ a {
     margin-top: 0;
   }
   
-  .insta-shot {
-    position: static;
-    transform: none;
-    width: min(72vw, 340px);
-    height: auto;
-    margin: 2rem auto 0;
+  .hero__tagline {
+    white-space: normal;
+    text-align: center;
+    font-size: 14px;
+    padding: 0 20px;
+  }
+  
+  .footer__bottom {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer__bottom-nav,
+  .footer__bottom-social,
+  .footer__copy {
+    justify-self: center;
   }
 }
 
@@ -1112,21 +1423,15 @@ a {
     padding-bottom: 160px !important;
   }
   
+  /* Секция Instagram - уменьшить отступы */
   .social {
     padding-top: 30px !important;
     padding-bottom: 27px !important;
   }
   
-  .social__watermark-wrapper {
-    overflow: visible !important;
-  }
-  
-  .social__watermark-wrapper .watermark {
-    font-size: clamp(64px, 15vw, 210px) !important;
-  }
-  
-  .insta-shot {
-    overflow: visible !important;
+  /* Поднять водяное слово "РАБОТЫ" выше */
+  .portfolio .watermark {
+    top: 3.3% !important;
   }
 }
 
@@ -1144,7 +1449,7 @@ a {
   .hero__socials {
     gap: 12px;
   }
-  
+
   .hero__socials svg {
     width: 16px;
     height: 16px;
@@ -1159,6 +1464,18 @@ a {
     padding-right: 20px;
   }
   
+  /* Уменьшаем нижний отступ секции INSTAGRAM на мобильных */
+  .social {
+    padding-bottom: 40px;
+  }
+  
+  .insta-shot {
+    position: static;
+    transform: none;
+    width: min(72vw, 340px);
+    height: auto;
+    margin: 2rem auto 0;
+  }
   .hero__tagline {
     white-space: normal;
     font-size: 13px;
@@ -1166,15 +1483,68 @@ a {
     bottom: 90px;
     max-width: 90%;
   }
-  
-  .footer__bottom {
-    grid-template-columns: 1fr;
-    text-align: center;
+
+  .services__steps {
+    gap: 32px;
   }
-  
-  .footer__bottom-nav,
-  .footer__bottom-social,
-  .footer__copy {
-    justify-self: center;
+
+  .footer__bottom-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
   }
+}
+
+/* ============================================
+   LIGHTBOX
+   ============================================ */
+#portfolio-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 10, 8, 0.94);
+  
+  /* КЛЮЧ: всегда flex, видимость только через opacity + visibility */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  overscroll-behavior: contain;
+}
+
+#portfolio-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
+}
+
+#portfolio-lightbox .lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+#portfolio-lightbox.active .lightbox-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#portfolio-lightbox .lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
+  color: #EFEBE4;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 10000;
 }
