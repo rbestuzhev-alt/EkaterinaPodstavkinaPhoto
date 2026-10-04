@@ -595,6 +595,7 @@ a {
 /* Экраны ≤1024px с тач-управлением: опустить tagline на 10% от высоты hero */
 @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
   .hero__tagline {
+    animation: none;
     transform: translateX(-50%) translateY(10vh);
   }
 }
