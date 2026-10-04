@@ -205,10 +205,26 @@ export default function App() {
     document.addEventListener('click', handleLightboxClose);
     document.addEventListener('keydown', handleEscape);
 
+    /* ---------- TOUCH-LIT для кнопок на тач-устройствах ---------- */
+    let touchLitObserver: IntersectionObserver | null = null;
+    if (!prefersReducedMotion && window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+      const touchButtons = document.querySelectorAll('.btn-how, .btn-signup');
+      if (touchButtons.length && 'IntersectionObserver' in window) {
+        touchLitObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            entry.target.classList.toggle('touch-lit', entry.isIntersecting);
+          });
+        }, { threshold: 0.6 });
+        
+        touchButtons.forEach((btn) => touchLitObserver!.observe(btn));
+      }
+    }
+
     return () => {
       observer.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
+      if (touchLitObserver) touchLitObserver.disconnect();
       document.removeEventListener('click', handleLightboxOpen);
       document.removeEventListener('click', handleLightboxClose);
       document.removeEventListener('keydown', handleEscape);
@@ -317,7 +333,7 @@ export default function App() {
                 <em>строгой композиции</em>.
                 Каждая съёмка создана так, чтобы вы забыли о присутствии камеры.
               </p>
-              <a href="#services" className="btn arrow-link">
+              <a href="#services" className="btn btn-how arrow-link">
                 КАК Я РАБОТАЮ <ArrowIcon />
               </a>
             </div>
@@ -410,7 +426,7 @@ export default function App() {
             </div>
           </div>
 
-          <a href="#book" className="btn arrow-link reveal">
+          <a href="#book" className="btn btn-signup arrow-link reveal">
             ЗАПИСАТЬСЯ НА СЪЁМКУ <ArrowIcon />
           </a>
         </div>

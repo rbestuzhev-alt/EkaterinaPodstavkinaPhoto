@@ -317,6 +317,15 @@ a {
   color: var(--milk);
 }
 
+/* Тач-устройства: кнопки плавно переходят в hover-вид при появлении на экране */
+@media (hover: none) and (pointer: coarse) {
+  .btn-how.touch-lit,
+  .btn-signup.touch-lit {
+    background: var(--red);
+    color: var(--milk);
+  }
+}
+
 .btn--outline {
   background: transparent;
   border: 1px solid var(--milk);
