@@ -213,7 +213,7 @@ export default function App() {
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       const target = Math.max(0, Math.min(centerInDoc - window.innerHeight / 2, maxScroll));
       
-      window.scrollTo({ top: target, behavior: 'smooth' });
+      window.scrollTo(0, target);
     };
 
     if (subscribeBtn) {
