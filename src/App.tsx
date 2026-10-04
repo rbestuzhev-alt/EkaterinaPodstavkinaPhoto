@@ -284,9 +284,14 @@ export default function App() {
         <p className="hero__tagline">
           Ловлю свет и создаю <em>истории</em>.
         </p>
-        
-        <a href="#contact" className="hero-contacts touch-only">МОИ КОНТАКТЫ</a>
       </header>
+
+      {/* ========== КНОПКА КОНТАКТОВ ДЛЯ ТАЧ ========== */}
+      <div className="hero-contacts-wrap touch-only">
+        <a href="#contact" className="btn">
+          МОИ КОНТАКТЫ
+        </a>
+      </div>
 
       {/* ========== МАНИФЕСТ ========== */}
       <section className="manifesto" id="about">
