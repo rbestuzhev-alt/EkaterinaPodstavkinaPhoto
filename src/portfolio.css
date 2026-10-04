@@ -384,14 +384,6 @@ a {
   transform: translateY(0);
 }
 
-/* На десктопе (>1024px) секция manifesto видна сразу */
-@media (min-width: 1025px) {
-  .manifesto.reveal {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ---------- HERO ENTRANCE ANIMATION ---------- */
 .hero__name {
   animation: heroFadeIn 1.5s ease-out 0.3s both;
