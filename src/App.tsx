@@ -286,13 +286,6 @@ export default function App() {
         </p>
       </header>
 
-      {/* ========== КНОПКА КОНТАКТОВ ДЛЯ ТАЧ ========== */}
-      <div className="hero-contacts-wrap touch-only">
-        <a href="#contact" className="btn">
-          МОИ КОНТАКТЫ
-        </a>
-      </div>
-
       {/* ========== МАНИФЕСТ ========== */}
       <section className="manifesto" id="about">
         <div className="manifesto__inner">
