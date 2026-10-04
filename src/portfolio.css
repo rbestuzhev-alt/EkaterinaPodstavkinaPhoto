@@ -440,13 +440,14 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--black);
 }
 
 @media (max-width: 1024px) {
   .hero {
     height: auto;
     min-height: 92.4vh;
-    padding-bottom: 5.48vh;
+    padding-bottom: 0;
   }
 }
 
@@ -633,6 +634,13 @@ a {
   color: var(--milk);
   padding: 160px 40px 120px;
   overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .manifesto {
+    padding-top: 80px;
+    margin-top: 0;
+  }
 }
 
 .manifesto__inner {
