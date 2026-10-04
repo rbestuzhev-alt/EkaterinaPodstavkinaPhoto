@@ -80,7 +80,7 @@ export default function App() {
       observer.observe(el);
     });
 
-    /* ---------- MANIFESTO TITLE REVEAL (отдельный observer для срабатывания чуть ниже) ---------- */
+    /* ---------- MANIFESTO TITLE REVEAL (отдельный observer для срабатывания ещё позже) ---------- */
     const manifestoTitleObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -89,7 +89,7 @@ export default function App() {
           }
         });
       },
-      { rootMargin: '0px 0px -20% 0px' }
+      { rootMargin: '0px 0px -50% 0px' }
     );
 
     document.querySelectorAll('.manifesto-title-reveal').forEach((el) => {
