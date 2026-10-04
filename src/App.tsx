@@ -89,7 +89,7 @@ export default function App() {
           }
         });
       },
-      { rootMargin: '0px 0px -50% 0px' }
+      { rootMargin: '0px 0px -80% 0px' }
     );
 
     document.querySelectorAll('.manifesto-title-reveal').forEach((el) => {
