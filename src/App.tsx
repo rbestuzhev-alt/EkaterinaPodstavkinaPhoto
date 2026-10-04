@@ -80,6 +80,23 @@ export default function App() {
       observer.observe(el);
     });
 
+    /* ---------- MANIFESTO REVEAL (отдельный observer для срабатывания чуть ниже) ---------- */
+    const manifestoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { rootMargin: '0px 0px -20% 0px' }
+    );
+
+    const manifestoSection = document.querySelector('.manifesto.reveal');
+    if (manifestoSection) {
+      manifestoObserver.observe(manifestoSection);
+    }
+
     /* ---------- LINE-MASK REVEAL ---------- */
     const lineObserver = new IntersectionObserver(
       (entries) => {
@@ -207,6 +224,7 @@ export default function App() {
 
     return () => {
       observer.disconnect();
+      manifestoObserver.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
       document.removeEventListener('click', handleLightboxOpen);
@@ -287,7 +305,7 @@ export default function App() {
       </header>
 
       {/* ========== МАНИФЕСТ ========== */}
-      <section className="manifesto" id="about">
+      <section className="manifesto reveal" id="about">
         <div className="manifesto__inner">
           <h2 className="manifesto__headline mixed-headline reveal line-mask">
             <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
