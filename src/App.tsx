@@ -200,6 +200,26 @@ export default function App() {
     document.addEventListener('click', handleLightboxClose);
     document.addEventListener('keydown', handleEscape);
 
+    /* ---------- ПЛАВНЫЙ СКРОЛЛ К КНОПКЕ INSTAGRAM ---------- */
+    const subscribeBtn = document.querySelector('.hero__join');
+    const instaCta = document.getElementById('insta-cta');
+
+    const handleSubscribeClick = (e: Event) => {
+      e.preventDefault();
+      if (!instaCta) return;
+      
+      const rect = instaCta.getBoundingClientRect();
+      const centerInDoc = rect.top + window.scrollY + rect.height / 2;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const target = Math.max(0, Math.min(centerInDoc - window.innerHeight / 2, maxScroll));
+      
+      window.scrollTo({ top: target, behavior: 'smooth' });
+    };
+
+    if (subscribeBtn) {
+      subscribeBtn.addEventListener('click', handleSubscribeClick);
+    }
+
     return () => {
       observer.disconnect();
       lineObserver.disconnect();
@@ -207,6 +227,9 @@ export default function App() {
       document.removeEventListener('click', handleLightboxOpen);
       document.removeEventListener('click', handleLightboxClose);
       document.removeEventListener('keydown', handleEscape);
+      if (subscribeBtn) {
+        subscribeBtn.removeEventListener('click', handleSubscribeClick);
+      }
     };
   }, []);
 
@@ -459,6 +482,7 @@ export default function App() {
             Все мои работы
           </p>
           <a
+            id="insta-cta"
             href="https://www.instagram.com/eppho.to/?hl=ru"
             target="_blank"
             rel="noopener"
