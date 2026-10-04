@@ -80,6 +80,26 @@ export default function App() {
       observer.observe(el);
     });
 
+    /* ---------- MANIFESTO TITLE REVEAL (отдельный observer для срабатывания чуть ниже) ---------- */
+    const manifestoTitleObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { rootMargin: '0px 0px -20% 0px' }
+    );
+
+    document.querySelectorAll('.manifesto-title-reveal').forEach((el) => {
+      if (prefersReducedMotion) {
+        el.classList.add('visible');
+      } else {
+        manifestoTitleObserver.observe(el);
+      }
+    });
+
     /* ---------- LINE-MASK REVEAL ---------- */
     const lineObserver = new IntersectionObserver(
       (entries) => {
@@ -207,6 +227,7 @@ export default function App() {
 
     return () => {
       observer.disconnect();
+      manifestoTitleObserver.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
       document.removeEventListener('click', handleLightboxOpen);
@@ -289,13 +310,13 @@ export default function App() {
       {/* ========== МАНИФЕСТ ========== */}
       <section className="manifesto" id="about">
         <div className="manifesto__inner">
-          <h2 className="manifesto__headline mixed-headline reveal line-mask">
+          <h2 className="manifesto__headline mixed-headline manifesto-title-reveal line-mask">
             <span className="line" style={{ '--i': 0 } as React.CSSProperties}>
               <span className="line-inner"><em>ты</em> НЕ ПОЗИРУЕШЬ.</span>
             </span>
           </h2>
 
-          <div className="manifesto__collage reveal">
+          <div className="manifesto__collage">
             <img
               className="manifesto__collage-img1"
               src="https://i.postimg.cc/wMnMn920/611280113-17850826491613066-4070977003915591454-n.jpg"
@@ -310,7 +331,7 @@ export default function App() {
             />
           </div>
 
-            <div className="reveal">
+            <div>
               <p className="manifesto__text">
                 Я Екатерина — editorial и love story-фотограф из Барнаула.
                 Мои работы живут на стыке живых эмоций и{' '}

@@ -384,6 +384,26 @@ a {
   transform: translateY(0);
 }
 
+/* ---------- MANIFESTO TITLE REVEAL ---------- */
+.manifesto-title-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.manifesto-title-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* На десктопе (>1024px) заголовок manifesto виден сразу */
+@media (min-width: 1025px) {
+  .manifesto-title-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ---------- HERO ENTRANCE ANIMATION ---------- */
 .hero__name {
   animation: heroFadeIn 1.5s ease-out 0.3s both;
