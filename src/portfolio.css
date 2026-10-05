@@ -1549,11 +1549,17 @@ a {
   z-index: 10000;
 }
 
-/* === ПЛАВНОЕ ПОЯВЛЕНИЕ ТЕЛЕФОНА (ТОЛЬКО OPACITY, БЕЗ СДВИГОВ) === */
+/* === ПЛАВНОЕ ПОЯВЛЕНИЕ ТЕЛЕФОНА (ЭФФЕКТ ПРОЯВКИ ПЛЁНКИ) === */
 .insta-shot {
   opacity: 0;
-  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(0.96);
+  filter: blur(8px);
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .insta-shot.insta-visible {
   opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
 }
