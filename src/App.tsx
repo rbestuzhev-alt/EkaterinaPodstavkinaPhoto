@@ -80,6 +80,21 @@ export default function App() {
       observer.observe(el);
     });
 
+    /* ---------- Intersection Observer для .insta-shot ---------- */
+    const instaObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('insta-visible');
+            instaObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    const instaShot = document.querySelector('.insta-shot');
+    if (instaShot) instaObserver.observe(instaShot);
+
     /* ---------- LINE-MASK REVEAL ---------- */
     const lineObserver = new IntersectionObserver(
       (entries) => {
@@ -222,6 +237,7 @@ export default function App() {
 
     return () => {
       observer.disconnect();
+      instaObserver.disconnect();
       lineObserver.disconnect();
       portfolioObserver.disconnect();
       if (touchLitObserver) touchLitObserver.disconnect();

@@ -1548,3 +1548,12 @@ a {
   cursor: pointer;
   z-index: 10000;
 }
+
+/* === ПЛАВНОЕ ПОЯВЛЕНИЕ ТЕЛЕФОНА (ТОЛЬКО OPACITY, БЕЗ СДВИГОВ) === */
+.insta-shot {
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.insta-shot.insta-visible {
+  opacity: 1;
+}
