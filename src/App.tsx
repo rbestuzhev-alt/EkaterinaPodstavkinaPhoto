@@ -448,7 +448,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="insta-shot reveal">
+        <div className="insta-shot">
           <img
             src="https://i.postimg.cc/fL65qNxp/iphone-ephoto.webp"
             alt="iPhone со скриншотом Instagram-ленты @ekaterina.podstavkina"
